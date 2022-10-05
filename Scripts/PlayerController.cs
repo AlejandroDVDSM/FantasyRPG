@@ -5,35 +5,41 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
-    private Vector2 movement;
-    private Vector2 jump;
+    private Vector3 movement;
     [SerializeField] private float jumpForce;
-    private Rigidbody2D rb;
+
+    private Rigidbody2D rigidbody2D;
+    private BoxCollider2D boxCollider2D;
+    [SerializeField] private LayerMask groundLayerMask;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void OnMove(InputValue value)
     {
-        movement = new Vector2(value.Get<Vector2>().x, 0);
+        movement = new Vector3(value.Get<Vector2>().x, 0, 0);
     }
 
     void OnJump()
-    { // ARREGLAR EL SALTO - POR ALGÚN CASUAL EMPLEAR Time.fixedDeltaTime lo rompe, pero sin usarlo salta DEMASIADO.
-      // Probar con velocity en vez de AddForce en el método FixedUpdate()???
-        jump = new Vector2(0, jumpForce);
-        Debug.Log("ESTOY SIENDO RECONOCIDO");
-        Debug.LogFormat("value: {0}", jumpForce);
-        //rb.velocity += new Vector2(0, jumpForce);
-        //transform.position += new Vector3(0, 5, 0);
+    {
+        if (IsGrounded())
+        {
+            rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 
-    private void FixedUpdate()
+
+    private void Update()
+    { // MODIFICAR ESTO CAMBIANDO EL VALOR DE LA VELOCIDAD POR EL ATRIBUTO SPEED DEL SCRIPTABLEOBJECT
+        transform.position += movement * 10 * Time.deltaTime;
+    }
+
+    bool IsGrounded()
     {
-        rb.AddForce(jump, ForceMode2D.Impulse);
-        //rb.MovePosition(rb.position + movement * 5 * Time.fixedDeltaTime);
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
+        return raycastHit2D.collider != null;
     }
 }
