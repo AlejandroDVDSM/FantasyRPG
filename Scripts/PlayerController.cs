@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     [SerializeField] private LayerMask groundLayerMask;
 
+    [SerializeField] private CharacterData characterData;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     { // MODIFICAR ESTO CAMBIANDO EL VALOR DE LA VELOCIDAD POR EL ATRIBUTO SPEED DEL SCRIPTABLEOBJECT
-        transform.position += movement * 10 * Time.deltaTime;
+        transform.position += movement * characterData.Speed * Time.deltaTime;
     }
 
     bool IsGrounded()

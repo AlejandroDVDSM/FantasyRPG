@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterClass: Knight
   health: 150
-  damage: 0
-  speed: 5
+  damage: 15
+  speed: 6.5
