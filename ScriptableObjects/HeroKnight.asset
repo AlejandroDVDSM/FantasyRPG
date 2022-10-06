@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c302283d0b3a6854ba282f465da7aa85, type: 3}
-  m_Name: Knight
+  m_Name: HeroKnight
   m_EditorClassIdentifier: 
-  characterClass: Knight
+  characterClass: Hero Knight
   health: 150
   damage: 15
   speed: 6.5
