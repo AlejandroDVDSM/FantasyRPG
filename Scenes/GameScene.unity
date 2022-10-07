@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 459454676}
   - component: {fileID: 459454675}
   - component: {fileID: 459454677}
+  - component: {fileID: 459454678}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -320,6 +321,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 430a50e230464e74c9eda606b2e6e141, type: 2}
+--- !u!95 &459454678
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459454668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 56eba18996329cb42a14adfc8aa65507, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +440,7 @@ GameObject:
   - component: {fileID: 1351337738}
   - component: {fileID: 1351337737}
   - component: {fileID: 1351337743}
+  - component: {fileID: 1351337744}
   m_Layer: 0
   m_Name: HeroKnight
   m_TagString: Untagged
@@ -601,6 +623,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: 90f33161658a1c743933b0aa2467ad56, type: 2}
+--- !u!95 &1351337744
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351337736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 698258a9298d36b42b681b8c45644e01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1695015453
 GameObject:
   m_ObjectHideFlags: 0
