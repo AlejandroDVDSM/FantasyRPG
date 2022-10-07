@@ -14,16 +14,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CharacterData characterData;
 
-    private string characterClass;
-    private int health;
-    private int damage;
-    private float speed;
-
-
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+
+        Debug.Log(PlayerPrefs.GetString("Class"));
     }
 
     void OnMove(InputValue value)

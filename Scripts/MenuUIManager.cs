@@ -4,17 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MenuTextManager : MonoBehaviour
+public class MenuUIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI characterClassText, healthText, speedText, damageText;
     [SerializeField] private Button playButton;
+    [SerializeField] private Image heartIcon, speedIcon, swordIcon;
 
     void Start()
     {
         healthText.enabled = false;
         speedText.enabled = false;
         damageText.enabled = false;
+
         playButton.gameObject.SetActive(false);
+
+        heartIcon.enabled = false;
+        speedIcon.enabled = false;
+        swordIcon.enabled = false;
     }
 
     public void setText(string characterClassText, string healthText, string speedText, string damageText)
@@ -32,6 +38,11 @@ public class MenuTextManager : MonoBehaviour
         healthText.enabled = true;
         speedText.enabled = true;
         damageText.enabled = true;
+        
         playButton.gameObject.SetActive(true);
+        
+        heartIcon.enabled = true;
+        speedIcon.enabled = true;
+        swordIcon.enabled = true;
     }
 }

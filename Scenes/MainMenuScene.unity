@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 314528663}
   - component: {fileID: 314528662}
   m_Layer: 0
-  m_Name: TextManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,6 +369,9 @@ MonoBehaviour:
   speedText: {fileID: 189615729}
   damageText: {fileID: 1394807702}
   playButton: {fileID: 1663994601}
+  heartIcon: {fileID: 1052208788}
+  speedIcon: {fileID: 296373241}
+  swordIcon: {fileID: 946091879}
 --- !u!4 &314528663
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,7 +1234,7 @@ Transform:
   m_GameObject: {fileID: 1229268051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.78, y: 0.35, z: 0}
-  m_LocalScale: {x: 5.004, y: 5.004, z: 5.004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1285,18 +1288,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04884503, y: -0.031749308}
+  m_Offset: {x: 0.25731587, y: -0.29233766}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.31, y: 1.9}
+    oldSize: {x: 11.55, y: 9.5}
     newSize: {x: 2.31, y: 1.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.580882, y: 0.8791363}
+  m_Size: {x: 2.8714032, y: 4.1521306}
   m_EdgeRadius: 0
 --- !u!1 &1394807700
 GameObject:

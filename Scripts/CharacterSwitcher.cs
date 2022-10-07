@@ -10,7 +10,7 @@ public class CharacterSwitcher : MonoBehaviour
 
     private void OnMouseDown()
     {
-        menuTextManager.GetComponent<MenuTextManager>().setText(characterData.CharacterClass, characterData.Health.ToString(), characterData.Speed.ToString(), characterData.Damage.ToString());
+        menuTextManager.GetComponent<MenuUIManager>().setText(characterData.CharacterClass, characterData.Health.ToString(), characterData.Speed.ToString(), characterData.Damage.ToString());
 
         // Mejorar en el futuro este cacho de código - Esto se encarga de reproducir una animación distinta cuando se pincha encima
         /*if (characterData.CharacterClass == "Hero Knight")
@@ -20,7 +20,7 @@ public class CharacterSwitcher : MonoBehaviour
         {
             animator.Play("Wizard_Attack1");
         } */
+
+        PlayerPrefs.SetString("Class", characterData.CharacterClass);
     }
-
-
 }
