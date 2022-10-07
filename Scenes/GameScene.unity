@@ -278,6 +278,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   characterData: {fileID: 11400000, guid: 430a50e230464e74c9eda606b2e6e141, type: 2}
+  animator: {fileID: 459454678}
 --- !u!114 &459454676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +466,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   characterData: {fileID: 11400000, guid: 90f33161658a1c743933b0aa2467ad56, type: 2}
+  animator: {fileID: 1351337744}
 --- !u!114 &1351337738
 MonoBehaviour:
   m_ObjectHideFlags: 0

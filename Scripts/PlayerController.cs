@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
 
     [SerializeField] private CharacterData characterData;
+    [SerializeField] private Animator animator;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     void OnMove(InputValue value)
     {
         movement = new Vector3(value.Get<Vector2>().x, 0, 0);
+        animator.SetFloat("Speed", Mathf.Abs(value.Get<Vector2>().x));
     }
 
     void OnJump()
@@ -33,6 +35,13 @@ public class PlayerController : MonoBehaviour
         {
             rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
+    }
+
+    void onAttack() // ARREGLAR, NO PARECE QUE ENTRE A ESTE MÉTODO CUANDO SE PULSA CLICK IZQUIERDO/DERECHO
+    {
+        Debug.Log("ataco");
+
+        animator.SetBool("isAttacking", true);
     }
 
     private void Update()
