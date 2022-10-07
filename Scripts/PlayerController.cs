@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CharacterData characterData;
 
+    private string characterClass;
+    private int health;
+    private int damage;
+    private float speed;
+
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -33,9 +39,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void Update()
-    { // MODIFICAR ESTO CAMBIANDO EL VALOR DE LA VELOCIDAD POR EL ATRIBUTO SPEED DEL SCRIPTABLEOBJECT
+    {
         transform.position += movement * characterData.Speed * Time.deltaTime;
     }
 
