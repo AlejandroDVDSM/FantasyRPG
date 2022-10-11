@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     {
         animator.SetBool("isDead", true);
 
-        // Disable the enemy (First, we disable the hitbox)
+        // Disable the hitbox and then the gameobject itself
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
     }

@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     private BoxCollider2D boxCollider2D;
-    private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
     private Vector3 movement;
@@ -19,11 +18,13 @@ public class PlayerController : MonoBehaviour
 
     private bool facingRight = true;
 
+    public bool FacingRight { get => facingRight; }
+    public Vector3 Movement { get => movement; }
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnMove(InputValue value)
@@ -41,6 +42,9 @@ public class PlayerController : MonoBehaviour
         movement = new Vector3(value.Get<Vector2>().x, 0, 0);
     }
 
+    /**
+     * FlipPlayer will change the scale of the player to change the direction in which the sprite is facing
+     */
     void FlipPlayer()
     {
         Vector3 currennScale = transform.localScale;
@@ -59,11 +63,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /**
+     * This method is called by Animation Events
+     */
     void isLanded()
     {
         animator.SetBool("IsJumping", false);
     }
 
+    /**
+     * This method check if the player is in the ground or not
+     */
     bool IsGrounded()
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
