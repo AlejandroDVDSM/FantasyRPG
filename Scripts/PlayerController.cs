@@ -14,12 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
 
     [SerializeField] private LayerMask groundLayerMask;
-    [SerializeField] private LayerMask enemyLayer;
 
     [SerializeField] private CharacterData characterData;
-
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRange;
 
     private void Awake()
     {
@@ -51,39 +47,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnAttack()
-    {
-        animator.SetTrigger("Attack1");
-
-        
-    }
-
-    private void Update()
-    {
-        transform.position += movement * characterData.Speed * Time.deltaTime;
-    }
-
     bool IsGrounded()
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
         return raycastHit2D.collider != null;
     }
 
-    void InflictDamage()
-    { // This method will be activated by Animation Events
-
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
-        }
-    }
-
-    private void OnDrawGizmosSelected()
+    private void Update()
     {
-        if (attackPoint == null) return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        transform.position += movement * characterData.Speed * Time.deltaTime;
     }
 }

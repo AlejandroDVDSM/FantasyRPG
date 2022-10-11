@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 188874905}
   m_Layer: 0
-  m_Name: AttackPoint
+  m_Name: AttackPointWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 188874904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.86, y: 0.16, z: 0}
+  m_LocalPosition: {x: 2.86, y: 0.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 276580183}
   m_Layer: 0
-  m_Name: AttackPoint
+  m_Name: AttackPointKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276580182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.35, y: 0, z: 0}
+  m_LocalPosition: {x: 2.99, y: 0, z: 0}
   m_LocalScale: {x: 1.0503231, y: 1.0503231, z: 1.0503231}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -195,13 +195,14 @@ GameObject:
   m_Component:
   - component: {fileID: 459454672}
   - component: {fileID: 459454671}
+  - component: {fileID: 459454678}
   - component: {fileID: 459454674}
   - component: {fileID: 459454673}
   - component: {fileID: 459454676}
   - component: {fileID: 459454675}
   - component: {fileID: 459454677}
-  - component: {fileID: 459454678}
   - component: {fileID: 459454679}
+  - component: {fileID: 459454680}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -342,12 +343,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
   characterData: {fileID: 11400000, guid: 430a50e230464e74c9eda606b2e6e141, type: 2}
-  attackPoint: {fileID: 188874905}
-  attackRange: 2
 --- !u!114 &459454676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +421,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBound: -40
   rightBound: 18
+--- !u!114 &459454680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459454668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e115002adaecae0448c7a26b666e4247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 459454678}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  attackPoint: {fileID: 188874905}
+  attackRange: 2
+  characterData: {fileID: 11400000, guid: 430a50e230464e74c9eda606b2e6e141, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,13 +628,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1351337742}
   - component: {fileID: 1351337741}
+  - component: {fileID: 1351337744}
   - component: {fileID: 1351337740}
   - component: {fileID: 1351337739}
   - component: {fileID: 1351337738}
   - component: {fileID: 1351337737}
   - component: {fileID: 1351337743}
-  - component: {fileID: 1351337744}
   - component: {fileID: 1351337745}
+  - component: {fileID: 1351337746}
   m_Layer: 0
   m_Name: HeroKnight
   m_TagString: Untagged
@@ -644,12 +660,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 128
   characterData: {fileID: 11400000, guid: 90f33161658a1c743933b0aa2467ad56, type: 2}
-  attackPoint: {fileID: 276580183}
-  attackRange: 1.5
 --- !u!114 &1351337738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +854,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBound: -40
   rightBound: 18
+--- !u!114 &1351337746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351337736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e115002adaecae0448c7a26b666e4247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1351337744}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  attackPoint: {fileID: 276580183}
+  attackRange: 1.5
+  characterData: {fileID: 11400000, guid: 90f33161658a1c743933b0aa2467ad56, type: 2}
 --- !u!1 &1691399317
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,7 +1371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3902928294339767649, guid: f5cd0243b0cd40940a1614371c2cd9c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.08
+      value: 16.91
       objectReference: {fileID: 0}
     - target: {fileID: 3902928294339767649, guid: f5cd0243b0cd40940a1614371c2cd9c0, type: 3}
       propertyPath: m_LocalPosition.z
