@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private CharacterData characterData;
 
+    [SerializeField] private float knockback;
+
     /**
      * OnAttack1 only trigger the animation of the attack
      */
@@ -25,12 +27,12 @@ public class PlayerAttack : MonoBehaviour
      */
     void InflictDamage()
     {
-
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
+            enemy.GetComponent<Enemy>().transform.position -= new Vector3(-knockback, 0, 0); // This will push the enemy after taking the hit
         }
     }
 
