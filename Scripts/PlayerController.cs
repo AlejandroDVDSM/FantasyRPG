@@ -59,15 +59,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void isLanded()
+    {
+        animator.SetBool("IsJumping", false);
+    }
+
     bool IsGrounded()
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
         return raycastHit2D.collider != null;
-    }
-
-    void isLanding()
-    {
-        animator.SetBool("IsJumping", false);
     }
 
     private void Update()
