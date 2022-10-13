@@ -10,7 +10,7 @@ public class CharacterSwitcher : MonoBehaviour
 
     private void OnMouseDown()
     {
-        menuTextManager.GetComponent<MenuUIManager>().setText(characterData.CharacterClass, characterData.Health.ToString(), characterData.Speed.ToString(), characterData.Damage.ToString());
+        menuTextManager.GetComponent<MenuUIManager>().SetText(characterData.CharacterClass, characterData.Health.ToString(), characterData.Speed.ToString(), characterData.Damage.ToString());
 
         PlayerPrefs.SetString("Class", characterData.CharacterClass);
     }

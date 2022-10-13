@@ -14,7 +14,7 @@ public class EnemySpawnManager : MonoBehaviour
         InvokeRepeating("spawnEnemy", 1, 3);
     }
 
-    void spawnEnemy()
+    void SpawnEnemy()
     {
         respawnPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
         Instantiate(enemiesPrefab[Random.Range(0, 4)], respawnPos, transform.rotation);

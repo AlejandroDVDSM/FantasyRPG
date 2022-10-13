@@ -23,17 +23,17 @@ public class MenuUIManager : MonoBehaviour
         swordIcon.enabled = false;
     }
 
-    public void setText(string characterClassText, string healthText, string speedText, string damageText)
+    public void SetText(string characterClassText, string healthText, string speedText, string damageText)
     {
         this.characterClassText.text = characterClassText;
         this.healthText.text = healthText;
         this.speedText.text = speedText;
         this.damageText.text = damageText;
 
-        enableText();
+        EnableText();
     }
 
-    void enableText()
+    void EnableText()
     {
         healthText.enabled = true;
         speedText.enabled = true;

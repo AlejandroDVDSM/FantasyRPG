@@ -21,7 +21,7 @@ public class Roll : MonoBehaviour
 
     public void OnSpecialMovement(InputAction.CallbackContext context)
     {
-        if (playerController.IsGrounded() && canRoll())
+        if (playerController.IsGrounded() && CanRoll())
         {
             if (playerController.FacingRight && context.started) // If it is facing right
             {
@@ -40,7 +40,7 @@ public class Roll : MonoBehaviour
     /**
      * This method is called by Animation Events
      */
-    public void stopRolling()
+    public void StopRolling()
     {
         animator.SetBool("IsRolling", false);
         isRolling = false;
@@ -50,7 +50,7 @@ public class Roll : MonoBehaviour
     /**
      * This method will check if the player is rolling
      */
-    bool canRoll()
+    bool CanRoll()
     {
         if (!isRolling && playerController.Movement.x != 0)
         {
