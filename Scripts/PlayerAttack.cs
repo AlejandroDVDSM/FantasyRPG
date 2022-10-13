@@ -15,19 +15,16 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private float knockback;
 
-    private PlayerController playerController;
-
-    private void Awake()
-    {
-        playerController = GetComponent<PlayerController>();
-    }
-
     /**
      * OnAttack1 only trigger the animation of the attack
      */
-    public void OnAttack1(InputAction.CallbackContext _)
+    public void OnAttack1(InputAction.CallbackContext context)
     {
-        animator.SetTrigger("Attack1");
+        // With this "if" we will avoid the trigger twice behaviour
+        if (context.performed) 
+        {
+            animator.SetTrigger("Attack1");
+        }
     }
 
     /**

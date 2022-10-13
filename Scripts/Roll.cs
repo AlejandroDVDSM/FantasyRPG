@@ -19,39 +19,44 @@ public class Roll : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
-    public void OnSpecialMovement(InputAction.CallbackContext _)
+    public void OnSpecialMovement(InputAction.CallbackContext context)
     {
-        // Arreglos necesarios: que no pueda cambiar la dirección mientras rueda
-        // Que le tengas que dar dos veces Shift
-        if(canRoll() && playerController.IsGrounded())
+        if (playerController.IsGrounded() && canRoll())
         {
-            if (playerController.FacingRight && playerController.Movement.x != 0)
+            if (playerController.FacingRight && context.started) // If it is facing right
             {
                 rigidbody2D.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);
-                animator.SetTrigger("Roll");
-            } else if (!playerController.FacingRight && playerController.Movement.x != 0)
+                animator.SetBool("IsRolling", true);
+            }
+            else if (!playerController.FacingRight && context.started) // If it is facing left
             {
                 rigidbody2D.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
-                animator.SetTrigger("Roll");
+                animator.SetBool("IsRolling", true);
             }
             isRolling = true;
-        } else
-        {
-            isRolling = false;
         }
     }
+
+    /**
+     * This method is called by Animation Events
+     */
+    public void stopRolling()
+    {
+        animator.SetBool("IsRolling", false);
+        isRolling = false;
+    }
+
 
     /**
      * This method will check if the player is rolling
      */
     bool canRoll()
     {
-        if (!isRolling)
+        if (!isRolling && playerController.Movement.x != 0)
         {
             return true;
         }
 
-        //isRolling = false;
         return false;
     }
 }
