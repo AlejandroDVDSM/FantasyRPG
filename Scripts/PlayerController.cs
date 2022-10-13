@@ -64,20 +64,20 @@ public class PlayerController : MonoBehaviour
     }
 
     /**
+     * This method check if the player is in the ground or not
+     */
+     public bool IsGrounded()
+    {
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
+        return raycastHit2D.collider != null;
+    }
+
+    /**
      * This method is called by Animation Events
      */
     void isLanded()
     {
         animator.SetBool("IsJumping", false);
-    }
-
-    /**
-     * This method check if the player is in the ground or not
-     */
-    bool IsGrounded()
-    {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, groundLayerMask);
-        return raycastHit2D.collider != null;
     }
 
     private void Update()

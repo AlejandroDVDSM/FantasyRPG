@@ -8,9 +8,9 @@ public class Roll : MonoBehaviour
     private PlayerController playerController;
 
     [SerializeField] private Animator animator;
-    [SerializeField] private float force;
+    [SerializeField] private float rollForce;
 
-    private bool canRoll = true;
+    private bool isRolling = false;
 
     private void Awake()
     {
@@ -20,15 +20,34 @@ public class Roll : MonoBehaviour
 
     void OnSpecialMovement()
     {
-        // HAY QUE IMPLEMENTAR QUE SOLO SE PUEDA RODAR SI NO SE ESTÁ RODANDO PREVIAMENTE
-        if (playerController.FacingRight && playerController.Movement.x != 0)
+        // Arreglos necesarios: que no pueda cambiar la dirección mientras rueda
+        // Que le tengas que dar dos veces Shift
+        if(canRoll() && playerController.IsGrounded())
         {
-            animator.SetTrigger("Roll");
-            rigidbody2D.AddForce(Vector2.right * force, ForceMode2D.Impulse);
-        } else if (!playerController.FacingRight && playerController.Movement.x != 0)
+            if (playerController.FacingRight && playerController.Movement.x != 0)
+            {
+                rigidbody2D.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);
+                animator.SetTrigger("Roll");
+            } else if (!playerController.FacingRight && playerController.Movement.x != 0)
+            {
+                rigidbody2D.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
+                animator.SetTrigger("Roll");
+            }
+            isRolling = true;
+        } else
         {
-            animator.SetTrigger("Roll");
-            rigidbody2D.AddForce(Vector2.left * force, ForceMode2D.Impulse);
+            isRolling = false;
         }
+    }
+
+    bool canRoll()
+    {
+        if (!isRolling)
+        {
+            return true;
+        }
+
+        //isRolling = false;
+        return false;
     }
 }
