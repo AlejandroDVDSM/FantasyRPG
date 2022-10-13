@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Roll : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class Roll : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
-    void OnSpecialMovement()
+    public void OnSpecialMovement(InputAction.CallbackContext _)
     {
         // Arreglos necesarios: que no pueda cambiar la dirección mientras rueda
         // Que le tengas que dar dos veces Shift
@@ -40,6 +41,9 @@ public class Roll : MonoBehaviour
         }
     }
 
+    /**
+     * This method will check if the player is rolling
+     */
     bool canRoll()
     {
         if (!isRolling)

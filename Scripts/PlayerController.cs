@@ -27,19 +27,18 @@ public class PlayerController : MonoBehaviour
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    void OnMove(InputValue value)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        animator.SetFloat("Speed", Mathf.Abs(value.Get<Vector2>().x));
-
-        if (value.Get<Vector2>().x < 0 && facingRight)
+        animator.SetFloat("Speed", Mathf.Abs(context.ReadValue<Vector2>().x));
+        if (context.ReadValue<Vector2>().x < 0 && facingRight)
         { // If the player is moving left BUT is facing right, then flip the player to the left
             FlipPlayer();
-        } else if (value.Get<Vector2>().x > 0 && !facingRight)
+        } else if (context.ReadValue<Vector2>().x > 0 && !facingRight)
         { // If the player is moving right BUT is facing left, then flip the player to the right
             FlipPlayer();
         }
 
-        movement = new Vector3(value.Get<Vector2>().x, 0, 0);
+        movement = new Vector3(context.ReadValue<Vector2>().x, 0, 0);
     }
 
     /**
@@ -54,7 +53,7 @@ public class PlayerController : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    void OnJump()
+    public void OnJump(InputAction.CallbackContext _)
     {
         if (IsGrounded())
         {

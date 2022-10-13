@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -19,13 +20,12 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
-
     }
 
     /**
      * OnAttack1 only trigger the animation of the attack
      */
-    void OnAttack1()
+    public void OnAttack1(InputAction.CallbackContext _)
     {
         animator.SetTrigger("Attack1");
     }
