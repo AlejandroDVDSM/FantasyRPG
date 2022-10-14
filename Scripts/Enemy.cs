@@ -16,6 +16,9 @@ public class Enemy : MonoBehaviour
         currentHealth = characterData.Health;
     }
 
+    /**
+     * This method will reduce enemy's health
+     */
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;

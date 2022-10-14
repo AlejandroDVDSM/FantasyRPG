@@ -15,6 +15,13 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private float knockback;
 
+    private PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GetComponent<PlayerController>();
+    }
+
     /**
      * OnAttack1 only trigger the animation of the attack
      */
@@ -38,8 +45,14 @@ public class PlayerAttack : MonoBehaviour
         {
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
 
-            enemy.GetComponent<Enemy>().transform.position += new Vector3(knockback, 0, 0); // This will push the enemy after taking the hit
-            // HAY QUE SOLUCIONAR LO DEL KNOCBACK. SI GOLPEO A UN ENEMIGO A MI IZQUIERDA, DEBERÍA EMPUJAR A LA IZQUIERDA, NO A LA DERECHA
+            if (playerController.FacingRight)
+            {
+                enemy.GetComponent<Enemy>().transform.position += new Vector3(knockback, 0, 0); // This will push the enemy to the right after taking the hit
+            }
+            else
+            {
+                enemy.GetComponent<Enemy>().transform.position += new Vector3(-knockback, 0, 0); // This will push the enemy to the right after taking the hit
+            }
         }
     }
 
