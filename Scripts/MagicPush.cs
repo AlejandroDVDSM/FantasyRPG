@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MagicPush : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class MagicPush : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+    public void OnSpecialMovement(InputAction.CallbackContext context)
     {
         
     }

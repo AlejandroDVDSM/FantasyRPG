@@ -29,16 +29,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        animator.SetFloat("Speed", Mathf.Abs(context.ReadValue<Vector2>().x));
-        if (context.ReadValue<Vector2>().x < 0 && facingRight)
+        var horizontalAxis = context.ReadValue<Vector2>().x;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalAxis));
+        if (horizontalAxis < 0 && facingRight)
         { // If the player is moving left BUT is facing right, then flip the player to the left
             FlipPlayer();
-        } else if (context.ReadValue<Vector2>().x > 0 && !facingRight)
+        } else if (horizontalAxis > 0 && !facingRight)
         { // If the player is moving right BUT is facing left, then flip the player to the right
             FlipPlayer();
         }
 
-        movement = new Vector3(context.ReadValue<Vector2>().x, 0, 0);
+        movement = new Vector3(horizontalAxis, 0, 0);
     }
 
     /**
