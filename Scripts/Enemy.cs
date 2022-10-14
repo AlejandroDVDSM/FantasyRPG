@@ -34,9 +34,10 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         animator.SetBool("isDead", true);
-
+        
         // Disable the component that we don't need anymore
         GetComponent<Collider2D>().enabled = false; // hitbox
+        GetComponent<Rigidbody2D>().isKinematic = true; // hitbox
         GetComponent<EnemyFollow>().enabled = false; // follow player behaviour
         this.enabled = false;
     }
