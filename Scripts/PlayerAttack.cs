@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour, IHitEnemies
 {
     [SerializeField] private Animator animator;
 
@@ -37,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     /**
      * This method is called by Animation Events
      */
-    void InflictDamage()
+    public void HitEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 

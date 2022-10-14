@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector3 = UnityEngine.Vector3;
 
-public class MagicPush : MonoBehaviour
+public class MagicPush : MonoBehaviour, IHitEnemies
 {
     
     [SerializeField] private Animator animator;
@@ -29,6 +30,7 @@ public class MagicPush : MonoBehaviour
      */
     public void OnSpecialMovement(InputAction.CallbackContext context)
     {
+        // With this "if" we will avoid the trigger twice behaviour
         if (context.performed)
         {
             animator.SetTrigger("MagicPush");
@@ -38,7 +40,7 @@ public class MagicPush : MonoBehaviour
     /**
      * This method is called by Animation Events
      */
-    public void AppliedKnockback()
+    public void HitEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 

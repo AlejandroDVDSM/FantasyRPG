@@ -18,11 +18,10 @@ public class EnemyFollow : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
-        if (player != null)
+        if (player != null && player.activeSelf)
         {
             playerPosition = player.transform;
         }
-        
     }
 
     // Update is called once per frame
