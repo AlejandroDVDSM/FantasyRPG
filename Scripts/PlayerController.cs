@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private bool facingRight = true;
 
+    // Getters
     public bool FacingRight { get => facingRight; }
     public Vector3 Movement { get => movement; }
 
@@ -48,9 +49,9 @@ public class PlayerController : MonoBehaviour
      */
     void FlipPlayer()
     {
-        Vector3 currennScale = transform.localScale;
-        currennScale.x *= -1;
-        transform.localScale = currennScale;
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
 
         facingRight = !facingRight;
     }
@@ -76,13 +77,13 @@ public class PlayerController : MonoBehaviour
     /**
      * This method is called by Animation Events
      */
-    void isLanded()
+    void IsLanded()
     {
         animator.SetBool("IsJumping", false);
     }
 
     private void Update()
     {
-        transform.position += movement * characterData.Speed * Time.deltaTime;
+        transform.position += movement * (characterData.Speed * Time.deltaTime);
     }
 }

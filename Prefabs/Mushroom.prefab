@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4421149041202241569}
+  - component: {fileID: -6405794400683482073}
+  - component: {fileID: 4421149041202241583}
   - component: {fileID: 4421149041202241570}
   - component: {fileID: 4421149041202241582}
-  - component: {fileID: 4421149041202241583}
   - component: {fileID: 4421149041202241568}
   m_Layer: 7
   m_Name: Mushroom
@@ -35,6 +36,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6405794400683482073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421149041202241571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909ca2b63cd8e0647b3f3293d62b56a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4421149041202241582}
+  characterData: {fileID: 11400000, guid: 175270f487e828e41b2f23e183b7c386, type: 2}
+  minimunDistance: 3
+--- !u!114 &4421149041202241583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421149041202241571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439ff036edac88e40961eec3c8b9ae7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4421149041202241582}
+  characterData: {fileID: 11400000, guid: 175270f487e828e41b2f23e183b7c386, type: 2}
 --- !u!212 &4421149041202241570
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -107,20 +137,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4421149041202241583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4421149041202241571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 439ff036edac88e40961eec3c8b9ae7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4421149041202241582}
-  characterData: {fileID: 11400000, guid: 175270f487e828e41b2f23e183b7c386, type: 2}
 --- !u!61 &4421149041202241568
 BoxCollider2D:
   m_ObjectHideFlags: 0

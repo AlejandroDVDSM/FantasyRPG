@@ -197,6 +197,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4288f3f8-0083-4ebd-a28b-822c6ba9fbb3",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Attack1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a02e0422-fb51-480d-9d68-3089fc81cecb",
                     "path": "<Keyboard>/space",
                     "interactions": "",

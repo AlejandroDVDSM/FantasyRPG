@@ -35,8 +35,9 @@ public class Enemy : MonoBehaviour
     {
         animator.SetBool("isDead", true);
 
-        // Disable the hitbox and then the gameobject itself
-        GetComponent<Collider2D>().enabled = false;
+        // Disable the component that we don't need anymore
+        GetComponent<Collider2D>().enabled = false; // hitbox
+        GetComponent<EnemyFollow>().enabled = false; // follow player behaviour
         this.enabled = false;
     }
 }

@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5367747205286647491}
+  - component: {fileID: -5107297734511160294}
+  - component: {fileID: 5367747205286647613}
   - component: {fileID: 5367747205286647490}
   - component: {fileID: 5367747205286647489}
   - component: {fileID: 5367747205286647612}
-  - component: {fileID: 5367747205286647613}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Untagged
@@ -35,6 +36,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5107297734511160294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367747205286647488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909ca2b63cd8e0647b3f3293d62b56a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5367747205286647612}
+  characterData: {fileID: 11400000, guid: 76a4d842d1b0dc4409338d22a5140877, type: 2}
+  minimunDistance: 3
+--- !u!114 &5367747205286647613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5367747205286647488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439ff036edac88e40961eec3c8b9ae7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5367747205286647612}
+  characterData: {fileID: 11400000, guid: 76a4d842d1b0dc4409338d22a5140877, type: 2}
 --- !u!212 &5367747205286647490
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,17 +163,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5367747205286647613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5367747205286647488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 439ff036edac88e40961eec3c8b9ae7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5367747205286647612}
-  characterData: {fileID: 11400000, guid: 76a4d842d1b0dc4409338d22a5140877, type: 2}
