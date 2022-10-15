@@ -48,14 +48,9 @@ public class MagicPush : MonoBehaviour, IHitEnemies
         {
             enemy.GetComponent<Enemy>().TakeDamage(2);
 
-            if (playerController.FacingRight)
-            {
-                enemy.GetComponent<Enemy>().transform.position += new Vector3(magicKnockback, 0, 0);
-            }
-            else
-            {
-                enemy.GetComponent<Enemy>().transform.position += new Vector3(-magicKnockback, 0, 0);
-            }
+            enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
+                ? new Vector3(magicKnockback, 0, 0)
+                : new Vector3(-magicKnockback, 0, 0);
         }
     }
 }

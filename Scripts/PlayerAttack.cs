@@ -46,14 +46,9 @@ public class PlayerAttack : MonoBehaviour, IHitEnemies
         {
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
 
-            if (playerController.FacingRight)
-            {
-                enemy.GetComponent<Enemy>().transform.position += new Vector3(knockback, 0, 0); // This will push the enemy to the right after taking the hit
-            }
-            else
-            {
-                enemy.GetComponent<Enemy>().transform.position += new Vector3(-knockback, 0, 0); // This will push the enemy to the right after taking the hit
-            }
+            enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
+                ? new Vector3(knockback, 0, 0)
+                : new Vector3(-knockback, 0, 0);
         }
     }
 
