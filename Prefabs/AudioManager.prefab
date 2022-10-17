@@ -47,25 +47,37 @@ MonoBehaviour:
   sounds:
   - name: Play
     clip: {fileID: 8300000, guid: 29307a81c2f70734492e3436f314526d, type: 3}
-    volume: 0.5
-    pitch: 1.02
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Click
     clip: {fileID: 8300000, guid: a60ee8f887e0071448961e02b685ddf6, type: 3}
-    volume: 0.35
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MainTheme
     clip: {fileID: 8300000, guid: 00763b6c7a2b1c446a5bc6a757878794, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: BattleTheme
     clip: {fileID: 8300000, guid: a51294a8bbeff024d983d3123033cacc, type: 3}
-    volume: 0.75
+    volume: 0.3
     pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: ae205e2236dac7d46af72be673fd58a8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Winner
+    clip: {fileID: 8300000, guid: 572ad85fdd60342468c5321cc25ef6bc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
