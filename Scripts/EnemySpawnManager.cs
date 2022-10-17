@@ -6,17 +6,26 @@ public class EnemySpawnManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] enemiesPrefab;
-    private Vector3 respawnPos;
+
+    private Vector3 leftRespawn;
+    private Vector3 rightRespawn;
+
+    private Vector3[] respawns = new Vector3[2];
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1, 3);
+        leftRespawn = new Vector3(-55, 15, 0);
+        rightRespawn = new Vector3(30, 15, 0);
+
+        respawns[0] = leftRespawn;
+        respawns[1] = rightRespawn;
+
+        InvokeRepeating("SpawnEnemy", 1, 5);
     }
 
     void SpawnEnemy()
     {
-        respawnPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
-        Instantiate(enemiesPrefab[Random.Range(0, 4)], respawnPos, transform.rotation);
+        Instantiate(enemiesPrefab[Random.Range(0, 4)], respawns[Random.Range(0, respawns.Length)], transform.rotation);
     }
 }

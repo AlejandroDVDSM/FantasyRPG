@@ -83,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4421149041202241582}
   monsterData: {fileID: 11400000, guid: 5dcfc1cfcbd450741beeece8359b44cb, type: 2}
-  minimunDistance: 3
+  minimunDistance: 6
   attackPoint: {fileID: 7345835205347206684}
   playerLayer:
     serializedVersion: 2

@@ -35,9 +35,15 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, monsterData.Speed * Time.deltaTime);
         }
         else
-        { // attack code here
+        { // attack code hereç
             animator.SetTrigger("Attack");
+
         }
+    }
+
+    private IEnumerator CooldownAttack(float secs)
+    {
+        yield return new WaitForSeconds(secs);
     }
 
     /**
@@ -50,9 +56,15 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
         foreach (Collider2D player in hitPlayers)
         {
             player.GetComponent<Player>().TakeDamage(monsterData.Damage);
-        }
-
+        } 
+        
+        StartCoroutine(CooldownAttack(2 * Time.deltaTime));
+        
     }
+
+
+
+
 
     /**
      * This method will draw the gizmos of the attack in the Unity Editor
