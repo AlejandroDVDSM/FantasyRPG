@@ -15,5 +15,5 @@ MonoBehaviour:
   monsterName: Mushroom
   health: 150
   damage: 10
-  speed: 4.5
+  speed: 3
   attackRange: 1.5

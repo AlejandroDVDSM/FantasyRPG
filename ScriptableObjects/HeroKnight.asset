@@ -15,4 +15,4 @@ MonoBehaviour:
   characterClass: Hero Knight
   health: 150
   damage: 15
-  speed: 6.5
+  speed: 7

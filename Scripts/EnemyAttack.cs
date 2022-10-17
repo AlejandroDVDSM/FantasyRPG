@@ -17,6 +17,8 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask playerLayer;
 
+    private float cooldownAttack = 2f;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -35,15 +37,16 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, monsterData.Speed * Time.deltaTime);
         }
         else
-        { // attack code hereç
-            animator.SetTrigger("Attack");
+        { // attack code here
+            cooldownAttack -= Time.deltaTime;
 
+            Debug.Log(cooldownAttack);
+            if (cooldownAttack < 0)
+            {
+                animator.SetTrigger("Attack");
+                cooldownAttack = 2f;
+            }
         }
-    }
-
-    private IEnumerator CooldownAttack(float secs)
-    {
-        yield return new WaitForSeconds(secs);
     }
 
     /**
@@ -56,15 +59,8 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
         foreach (Collider2D player in hitPlayers)
         {
             player.GetComponent<Player>().TakeDamage(monsterData.Damage);
-        } 
-        
-        StartCoroutine(CooldownAttack(2 * Time.deltaTime));
-        
+        }
     }
-
-
-
-
 
     /**
      * This method will draw the gizmos of the attack in the Unity Editor

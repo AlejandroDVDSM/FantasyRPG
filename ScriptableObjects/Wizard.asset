@@ -15,4 +15,4 @@ MonoBehaviour:
   characterClass: Wizard
   health: 100
   damage: 9
-  speed: 10
+  speed: 9
