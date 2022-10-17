@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 459454674}
   - component: {fileID: 459454673}
   - component: {fileID: 459454676}
+  - component: {fileID: 459454682}
   - component: {fileID: 459454675}
   - component: {fileID: 459454680}
   - component: {fileID: 459454681}
@@ -569,6 +570,20 @@ MonoBehaviour:
   attackPoint: {fileID: 188874905}
   attackRange: 2
   magicKnockback: 3.5
+--- !u!114 &459454682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459454668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49ee56e1a15d9d4fa77a18dfc5c1912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 459454678}
+  characterData: {fileID: 11400000, guid: 430a50e230464e74c9eda606b2e6e141, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1016,7 @@ GameObject:
   - component: {fileID: 1351337740}
   - component: {fileID: 1351337739}
   - component: {fileID: 1351337738}
+  - component: {fileID: 1351337749}
   - component: {fileID: 1351337737}
   - component: {fileID: 1351337746}
   - component: {fileID: 1351337747}
@@ -1392,6 +1408,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1351337744}
+--- !u!114 &1351337749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351337736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49ee56e1a15d9d4fa77a18dfc5c1912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1351337744}
+  characterData: {fileID: 11400000, guid: 90f33161658a1c743933b0aa2467ad56, type: 2}
 --- !u!1 &1400094252
 GameObject:
   m_ObjectHideFlags: 0

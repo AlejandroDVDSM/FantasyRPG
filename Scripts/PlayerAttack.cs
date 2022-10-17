@@ -44,7 +44,6 @@ public class PlayerAttack : MonoBehaviour, IHitEntities
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("enemy hit");
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
 
             enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight

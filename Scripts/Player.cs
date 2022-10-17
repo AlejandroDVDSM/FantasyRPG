@@ -3,23 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, ILife
+public class Player : MonoBehaviour, ILife
 {
 
     [SerializeField] private Animator animator;
-    [SerializeField] private MonsterData monsterData;
+    [SerializeField] private CharacterData characterData;
 
-    private int currentHealth;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        currentHealth = monsterData.Health;
+        currentHealth = characterData.Health;
     }
 
     /**
-     * This method will reduce enemy's health
+     * This method will reduce player health
      */
+    private int currentHealth;
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -35,11 +33,12 @@ public class Enemy : MonoBehaviour, ILife
     public void Die()
     {
         animator.SetBool("IsDead", true);
-        
+
         // Disable the component that we don't need anymore
         GetComponent<Collider2D>().enabled = false; // hitbox
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
-        GetComponent<EnemyAttack>().enabled = false; // follow player behaviour
+        GetComponent<PlayerController>().enabled = false; // movement
         this.enabled = false;
     }
+
 }

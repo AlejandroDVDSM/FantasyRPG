@@ -41,16 +41,6 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
     }
 
     /**
-     * This method will draw the gizmos of the attack in the Unity Editor
-    */
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null) return;
-
-        Gizmos.DrawWireSphere(attackPoint.position, monsterData.AttackRange);
-    }
-
-    /**
      * This method is called by Animation Events
      */
     public void HitEntities()
@@ -59,10 +49,18 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
 
         foreach (Collider2D player in hitPlayers)
         {
-
-
-            //player.GetComponent<Player>().TakeDamage(monsterData.Damage);
+            player.GetComponent<Player>().TakeDamage(monsterData.Damage);
         }
 
+    }
+
+    /**
+     * This method will draw the gizmos of the attack in the Unity Editor
+    */
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, monsterData.AttackRange);
     }
 }

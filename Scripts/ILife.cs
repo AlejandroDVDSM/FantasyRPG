@@ -1,6 +1,6 @@
 namespace DefaultNamespace
 {
-    public interface ICombatBehaviour
+    public interface ILife
     {
         void TakeDamage(int damage);
         void Die();
