@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 459454681}
   - component: {fileID: 459454677}
   - component: {fileID: 459454679}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wizard
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 1351337748}
   - component: {fileID: 1351337743}
   - component: {fileID: 1351337745}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HeroKnight
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1289,7 +1289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351337736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.6, y: 1.72, z: -2.6388998}
+  m_LocalPosition: {x: -17.22, y: 1.72, z: -2.6388998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1509,7 +1509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1691399318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2101,17 +2101,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinTest
       objectReference: {fileID: 0}
-    - target: {fileID: 5367747205286647488, guid: cf04be23f0c23724ca2a129537087828, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5367747205286647491, guid: cf04be23f0c23724ca2a129537087828, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5367747205286647491, guid: cf04be23f0c23724ca2a129537087828, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.66
+      value: -33.81
       objectReference: {fileID: 0}
     - target: {fileID: 5367747205286647491, guid: cf04be23f0c23724ca2a129537087828, type: 3}
       propertyPath: m_LocalPosition.y

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector3 = UnityEngine.Vector3;
 
-public class MagicPush : MonoBehaviour, IHitEnemies
+public class MagicPush : MonoBehaviour, IHitEntities
 {
     
     [SerializeField] private Animator animator;
@@ -40,7 +40,7 @@ public class MagicPush : MonoBehaviour, IHitEnemies
     /**
      * This method is called by Animation Events
      */
-    public void HitEnemies()
+    public void HitEntities()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 

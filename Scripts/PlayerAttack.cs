@@ -4,7 +4,7 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour, IHitEnemies
+public class PlayerAttack : MonoBehaviour, IHitEntities
 {
     [SerializeField] private Animator animator;
 
@@ -38,12 +38,13 @@ public class PlayerAttack : MonoBehaviour, IHitEnemies
     /**
      * This method is called by Animation Events
      */
-    public void HitEnemies()
+    public void HitEntities()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
         {
+            Debug.Log("enemy hit");
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
 
             enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight

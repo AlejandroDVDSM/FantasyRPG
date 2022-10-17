@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-
 public class Timer : MonoBehaviour
 {
-    private float timeValue = 5; // 2 min.
+    private float timeValue = 120; // 2 min.
     [SerializeField] private TextMeshProUGUI timerText;
 
 

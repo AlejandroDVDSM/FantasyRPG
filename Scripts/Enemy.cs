@@ -1,19 +1,20 @@
+using DefaultNamespace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, ICombatBehaviour
 {
 
     [SerializeField] private Animator animator;
-    [SerializeField] private CharacterData characterData;
+    [SerializeField] private MonsterData monsterData;
 
     private int currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = characterData.Health;
+        currentHealth = monsterData.Health;
     }
 
     /**
@@ -31,14 +32,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
         animator.SetBool("isDead", true);
         
         // Disable the component that we don't need anymore
         GetComponent<Collider2D>().enabled = false; // hitbox
-        GetComponent<Rigidbody2D>().isKinematic = true; // hitbox
-        GetComponent<EnemyFollow>().enabled = false; // follow player behaviour
+        GetComponent<Rigidbody2D>().isKinematic = true; // gravity
+        GetComponent<EnemyAttack>().enabled = false; // follow player behaviour
         this.enabled = false;
     }
 }
