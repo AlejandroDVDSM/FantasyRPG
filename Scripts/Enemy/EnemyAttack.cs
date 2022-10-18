@@ -39,9 +39,12 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
         if (Vector2.Distance(transform.position, playerPosition.position) > minimunDistance)
         { // If the enemy is not near to the player, keep following him
             transform.position = Vector2.MoveTowards(transform.position, playerPosition.position, monsterData.Speed * Time.deltaTime);
+            animator.SetFloat("Speed", monsterData.Speed);
         }
         else
         { // attack code here
+            animator.SetFloat("Speed", 0);
+
             cooldownAttack -= Time.deltaTime;
 
             if (cooldownAttack < 0)
