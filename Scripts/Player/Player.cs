@@ -64,5 +64,4 @@ public class Player : MonoBehaviour, ILife
         GetComponent<PlayerController>().enabled = false; // movement
         this.enabled = false;
     }
-
 }
