@@ -18,9 +18,12 @@ public class PlayerAttack : MonoBehaviour, IHitEntities
 
     private PlayerController playerController;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     /**
@@ -31,6 +34,7 @@ public class PlayerAttack : MonoBehaviour, IHitEntities
         // With this "if" we will avoid the trigger twice behaviour
         if (context.performed) 
         {
+            audioManager.Play("SwordAttack");
             animator.SetTrigger("Attack1");
         }
     }

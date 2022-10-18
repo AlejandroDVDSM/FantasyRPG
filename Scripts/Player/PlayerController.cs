@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CharacterData characterData;
 
+    private AudioManager audioManager;
+
     private bool facingRight = true;
 
     // Getters
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour
         var horizontalAxis = context.ReadValue<Vector2>().x;
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalAxis));
+        //audioManager.Play("PlayerMoving");
+
         if (horizontalAxis < 0 && facingRight)
         { // If the player is moving left BUT is facing right, then flip the player to the left
             FlipPlayer();
@@ -61,6 +66,7 @@ public class PlayerController : MonoBehaviour
         if (IsGrounded())
         {
             animator.SetBool("IsJumping", true);
+            audioManager.Play("PlayerJump");
             rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
@@ -80,6 +86,7 @@ public class PlayerController : MonoBehaviour
     void IsLanded()
     {
         animator.SetBool("IsJumping", false);
+        audioManager.Play("PlayerLanding");
     }
 
     private void Update()

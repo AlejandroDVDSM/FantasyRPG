@@ -9,6 +9,10 @@ public class TriggerGameOver : MonoBehaviour
 
     public void TriggerGameOverScreen()
     {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+
+        audioManager.Stop("BattleTheme");
+        audioManager.Play("GameOver");
         gameOverUI.SetActive(true);
     }
 }

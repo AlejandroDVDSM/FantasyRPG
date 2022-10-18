@@ -13,10 +13,13 @@ public class Roll : MonoBehaviour
 
     private bool isRolling = false;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void OnSpecialMovement(InputAction.CallbackContext context)
@@ -27,11 +30,13 @@ public class Roll : MonoBehaviour
             {
                 rigidbody2D.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);
                 animator.SetBool("IsRolling", true);
+                audioManager.Play("PlayerRolling");
             }
             else if (!playerController.FacingRight && context.started) // If it is facing left
             {
                 rigidbody2D.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
                 animator.SetBool("IsRolling", true);
+                audioManager.Play("PlayerRolling");
             }
             isRolling = true;
         }

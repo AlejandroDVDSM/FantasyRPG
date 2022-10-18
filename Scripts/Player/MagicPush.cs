@@ -20,9 +20,12 @@ public class MagicPush : MonoBehaviour, IHitEntities
 
     private PlayerController playerController;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     /**
@@ -34,6 +37,7 @@ public class MagicPush : MonoBehaviour, IHitEntities
         if (context.performed)
         {
             animator.SetTrigger("MagicPush");
+            audioManager.Play("MagicPush");
         }
     }
 

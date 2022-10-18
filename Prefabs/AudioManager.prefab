@@ -45,6 +45,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 00763b6c7a2b1c446a5bc6a757878794, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: BattleTheme
+    clip: {fileID: 8300000, guid: a51294a8bbeff024d983d3123033cacc, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: ae205e2236dac7d46af72be673fd58a8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Winner
+    clip: {fileID: 8300000, guid: 572ad85fdd60342468c5321cc25ef6bc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: Play
     clip: {fileID: 8300000, guid: 29307a81c2f70734492e3436f314526d, type: 3}
     volume: 0.2
@@ -57,26 +81,74 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: MainTheme
-    clip: {fileID: 8300000, guid: 00763b6c7a2b1c446a5bc6a757878794, type: 3}
-    volume: 0.5
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: BattleTheme
-    clip: {fileID: 8300000, guid: a51294a8bbeff024d983d3123033cacc, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: GameOver
-    clip: {fileID: 8300000, guid: ae205e2236dac7d46af72be673fd58a8, type: 3}
+  - name: PlayerMoving
+    clip: {fileID: 8300000, guid: 735fd1fb9040acc4f8427503106f114e, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Winner
-    clip: {fileID: 8300000, guid: 572ad85fdd60342468c5321cc25ef6bc, type: 3}
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: ca90cda8b892e79498d4cddfc7e5e60b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerLanding
+    clip: {fileID: 8300000, guid: c072c587f9482a644875fd48ceef7899, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordAttack
+    clip: {fileID: 8300000, guid: 95c136608840e5b48a17fe5aee576ecd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MagicPush
+    clip: {fileID: 8300000, guid: 6a738371add8f8041aec6de9c5ffc92b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShieldBlocking
+    clip: {fileID: 8300000, guid: ac12e26b984513a43835d32e63427e79, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerRolling
+    clip: {fileID: 8300000, guid: 14e9f15073071984f9e1caf8ae7b194c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: b7c474b025b7b44429679255902b8f90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 3ba7f020c63d29741852558543134b90, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyAttack
+    clip: {fileID: 8300000, guid: c8cd8b5693f16584cbc033f99241e47c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHit
+    clip: {fileID: 8300000, guid: 838a64e244c8a5549b17936c63843936, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 14603e37165b1684db57d645c5f2bd61, type: 3}
     volume: 1
     pitch: 1
     loop: 0

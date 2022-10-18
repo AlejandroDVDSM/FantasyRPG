@@ -19,8 +19,12 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
 
     private float cooldownAttack = 1f;
 
+    private AudioManager audioManager;
+
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
+
         player = GameObject.FindWithTag("Player");
 
         if (player != null && player.activeSelf)
@@ -43,6 +47,7 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
             if (cooldownAttack < 0)
             {
                 animator.SetTrigger("Attack");
+                audioManager.Play("EnemyAttack");
                 cooldownAttack = 2f;
             }
         }

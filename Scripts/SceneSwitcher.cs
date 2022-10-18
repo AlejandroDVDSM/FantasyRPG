@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
+
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
+
     public void LoadScene(string scene) 
     {
         SceneManager.LoadScene(scene);
@@ -15,7 +24,6 @@ public class SceneSwitcher : MonoBehaviour
      */
     public void initSong(string song)
     {
-        AudioManager audioManager = FindObjectOfType<AudioManager>();
         audioManager.Play("Play");
 
         switch(song)

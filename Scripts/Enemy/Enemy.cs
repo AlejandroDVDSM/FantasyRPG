@@ -11,10 +11,13 @@ public class Enemy : MonoBehaviour, ILife
 
     private int currentHealth;
 
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = monsterData.Health;
+        audioManager = FindObjectOfType<AudioManager>();
 
         FaceTowardsThePlayer();
     }
@@ -34,9 +37,10 @@ public class Enemy : MonoBehaviour, ILife
      */
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-
         animator.SetTrigger("TakeHit");
+        audioManager.Play("EnemyHit");
+
+        currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
@@ -47,6 +51,7 @@ public class Enemy : MonoBehaviour, ILife
     public void Die()
     {
         animator.SetBool("IsDead", true);
+        audioManager.Play("EnemyDeath");
         
         // Disable the component that we don't need anymore
         GetComponent<Collider2D>().enabled = false; // hitbox
