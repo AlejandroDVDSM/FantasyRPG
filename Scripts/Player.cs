@@ -27,6 +27,7 @@ public class Player : MonoBehaviour, ILife
         if (currentHealth <= 0)
         {
             Die();
+            GameObject.Find("GameOverManager").GetComponent<TriggerGameOver>().TriggerGameOverScreen();
         }
     }
 

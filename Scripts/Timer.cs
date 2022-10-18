@@ -5,9 +5,8 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    private float timeValue = 120; // 2 min.
+    private float timeValue = 120; // 120 secs = 2 min.
     [SerializeField] private TextMeshProUGUI timerText;
-
 
     private void Update()
     {
@@ -17,6 +16,8 @@ public class Timer : MonoBehaviour
         } else
         {
             timeValue = 0;
+
+            GameObject.Find("GameOverManager").GetComponent<TriggerGameOver>().TriggerGameOverScreen();
         }
 
         DisplayTime(timeValue);

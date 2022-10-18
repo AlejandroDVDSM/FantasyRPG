@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public static AudioManager instance;
-    
+
     private void Awake()
     {
 
@@ -63,6 +63,5 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.Stop();
-
     }
 }

@@ -17,7 +17,7 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask playerLayer;
 
-    private float cooldownAttack = 2f;
+    private float cooldownAttack = 1f;
 
     private void Start()
     {
@@ -40,7 +40,6 @@ public class EnemyAttack : MonoBehaviour, IHitEntities
         { // attack code here
             cooldownAttack -= Time.deltaTime;
 
-            Debug.Log(cooldownAttack);
             if (cooldownAttack < 0)
             {
                 animator.SetTrigger("Attack");

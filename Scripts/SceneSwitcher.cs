@@ -5,13 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public void LoadScene(string name) 
+    public void LoadScene(string scene) 
     {
-        FindObjectOfType<AudioManager>().Play("Play");
-        FindObjectOfType<AudioManager>().Stop("MainTheme");
-        FindObjectOfType<AudioManager>().Play("BattleTheme");
-        SceneManager.LoadScene(name);
-        
+        SceneManager.LoadScene(scene);
     }
 
+    /**
+     * This method start playing the song of the scene that is going to be loaded
+     */
+    public void initSong(string song)
+    {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+        audioManager.Play("Play");
+
+        switch(song)
+        {
+            case "MainTheme":
+                audioManager.Stop("BattleTheme");
+                break;
+
+            case "BattleTheme":
+                audioManager.Stop("MainTheme");
+                break;
+
+            default:
+                break;
+        }
+
+        audioManager.Play(song);
+    }
 }
