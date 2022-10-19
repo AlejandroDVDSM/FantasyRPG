@@ -26,17 +26,17 @@ public class Roll : MonoBehaviour
     {
         if (playerController.IsGrounded() && CanRoll())
         {
+            animator.SetBool("IsRolling", true);
+            audioManager.Play("PlayerRolling");
+            Physics2D.IgnoreLayerCollision(gameObject.layer, 7);
+
             if (playerController.FacingRight && context.started) // If it is facing right
             {
                 rigidbody2D.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);
-                animator.SetBool("IsRolling", true);
-                audioManager.Play("PlayerRolling");
             }
             else if (!playerController.FacingRight && context.started) // If it is facing left
             {
                 rigidbody2D.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
-                animator.SetBool("IsRolling", true);
-                audioManager.Play("PlayerRolling");
             }
             isRolling = true;
         }
@@ -49,6 +49,7 @@ public class Roll : MonoBehaviour
     {
         animator.SetBool("IsRolling", false);
         isRolling = false;
+        Physics2D.IgnoreLayerCollision(gameObject.layer, 7, false);
     }
 
 
@@ -63,16 +64,5 @@ public class Roll : MonoBehaviour
         }
 
         return false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        var enemyLayer = collision.gameObject.layer;
-
-        if (isRolling &&  enemyLayer == 7) // Layer 7 = Enemies
-        {
-            Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer);
-            //Physics2D.SetLayerCollisionMask(layer del jugador, layer enemigo); ¿Para volver a detectar colisiones con enemigos? ¿Dónde podría colocarlo?
-        }
     }
 }
