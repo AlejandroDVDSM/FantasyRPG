@@ -820,7 +820,7 @@ MonoBehaviour:
   attackPoint: {fileID: 188874905}
   attackRange: 2
   characterData: {fileID: 11400000, guid: 430a50e230464e74c9eda606b2e6e141, type: 2}
-  knockback: 0.5
+  knockback: 1.5
 --- !u!114 &459454681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,7 +839,7 @@ MonoBehaviour:
     m_Bits: 128
   attackPoint: {fileID: 188874905}
   attackRange: 2
-  magicKnockback: 3.5
+  magicKnockback: 5
 --- !u!114 &459454682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1880,7 @@ MonoBehaviour:
   attackPoint: {fileID: 276580183}
   attackRange: 1.5
   characterData: {fileID: 11400000, guid: 90f33161658a1c743933b0aa2467ad56, type: 2}
-  knockback: 1.25
+  knockback: 1.85
 --- !u!114 &1351337747
 MonoBehaviour:
   m_ObjectHideFlags: 0

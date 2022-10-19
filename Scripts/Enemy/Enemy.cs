@@ -40,11 +40,26 @@ public class Enemy : MonoBehaviour, ILife
     {
         animator.SetBool("IsDead", true);
         audioManager.Play("EnemyDeath");
+
+        StartCoroutine(DestroyCorpse());
+    }
+
+    private IEnumerator DestroyCorpse()
+    {
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+
+        // Disable all scripts attached to the enemies
+        foreach (var script in scripts)
+        {
+            script.enabled = false;
+        }
         
-        // Disable the component that we don't need anymore
-        GetComponent<Collider2D>().enabled = false; // hitbox
+        GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
-        GetComponent<EnemyAttack>().enabled = false; // follow player behaviour
         this.enabled = false;
+
+        yield return new WaitForSeconds(7);
+
+        Destroy(gameObject);
     }
 }

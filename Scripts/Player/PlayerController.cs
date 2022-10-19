@@ -33,21 +33,21 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        var horizontalAxis = context.ReadValue<Vector2>().x;
+        var horizontalAxisValue = context.ReadValue<Vector2>().x;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalAxis));
-        //audioManager.Play("PlayerMoving");
+        animator.SetFloat("Speed", Mathf.Abs(horizontalAxisValue));
 
-        if (horizontalAxis < 0 && facingRight)
+        if (horizontalAxisValue < 0 && facingRight)
         { // If the player is moving left BUT is facing right, then flip the player to the left
             FlipPlayer();
-        } else if (horizontalAxis > 0 && !facingRight)
+        } else if (horizontalAxisValue > 0 && !facingRight)
         { // If the player is moving right BUT is facing left, then flip the player to the right
             FlipPlayer();
         }
 
-        movement = new Vector3(horizontalAxis, 0, 0);
+        movement = new Vector3(horizontalAxisValue, 0, 0);
     }
+
 
     /**
      * FlipPlayer will change the scale of the player to change the direction in which the sprite is facing

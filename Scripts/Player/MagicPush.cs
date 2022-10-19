@@ -1,13 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Vector3 = UnityEngine.Vector3;
 
-public class MagicPush : MonoBehaviour, IHitEntities
+public class MagicPush : MonoBehaviour
 {
     
     [SerializeField] private Animator animator;
@@ -44,7 +39,7 @@ public class MagicPush : MonoBehaviour, IHitEntities
     /**
      * This method is called by Animation Events
      */
-    public void HitEntities()
+    public void MagicHit()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
@@ -52,9 +47,19 @@ public class MagicPush : MonoBehaviour, IHitEntities
         {
             enemy.GetComponent<Enemy>().TakeDamage(2);
 
-            enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
-                ? new Vector3(magicKnockback, 0, 0)
-                : new Vector3(-magicKnockback, 0, 0);
+            MagicKnockback(enemy);
+
         }
+    }
+
+    /**
+     * This method will push enemies away
+     */
+    private void MagicKnockback(Collider2D enemy) 
+    {
+        enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
+            ? new Vector3(magicKnockback, 0, 0)
+            : new Vector3(-magicKnockback, 0, 0);
+
     }
 }

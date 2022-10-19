@@ -58,10 +58,16 @@ public class Player : MonoBehaviour, ILife
         animator.SetBool("IsDead", true);
         audioManager.Play("PlayerDeath");
 
-        // Disable the component that we don't need anymore
-        GetComponent<Collider2D>().enabled = false; // hitbox
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+
+        // Disable all scripts attached to the player
+        foreach (var script in scripts)
+        {
+            script.enabled = false;
+        }
+
+        GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
-        GetComponent<PlayerController>().enabled = false; // movement
         this.enabled = false;
     }
 }

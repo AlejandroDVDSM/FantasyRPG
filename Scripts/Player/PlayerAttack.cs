@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour, IHitEntities
+public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator animator;
 
@@ -42,18 +39,26 @@ public class PlayerAttack : MonoBehaviour, IHitEntities
     /**
      * This method is called by Animation Events
      */
-    public void HitEntities()
+    public void HitEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
-
-            enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
-                ? new Vector3(knockback, 0, 0)
-                : new Vector3(-knockback, 0, 0);
+            KnockBack(enemy);
         }
+    }
+
+    /**
+     * This method will push enemies away
+     */
+    private void KnockBack(Collider2D enemy)
+    {
+        enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
+            ? new Vector3(knockback, 0, 0)
+            : new Vector3(-knockback, 0, 0);
+
     }
 
     /**

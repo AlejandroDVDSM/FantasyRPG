@@ -33,7 +33,7 @@ public class EnemyFacingTowardsPlayer : MonoBehaviour
         }
     }
 
-    void FlipEnemy()
+    private void FlipEnemy()
     {
         Vector3 currentScale = transform.localScale;
         currentScale.x *= -1;
