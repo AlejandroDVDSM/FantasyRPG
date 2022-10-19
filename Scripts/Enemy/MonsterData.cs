@@ -11,6 +11,8 @@ public class MonsterData : ScriptableObject
 
     [SerializeField] private float attackRange;
 
+    [SerializeField] private float cooldownAttack;
+
     // Getters
     public string MonsterName { get { return monsterName; } }
 
@@ -21,4 +23,6 @@ public class MonsterData : ScriptableObject
     public float Speed { get { return speed; } }
 
     public float AttackRange { get { return attackRange; } }
+
+    public float CooldownAttack { get => cooldownAttack; }
 }

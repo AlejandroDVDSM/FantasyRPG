@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyFacingTowardsPlayer : MonoBehaviour
 {
-
     private GameObject player;
     private Transform playerPosition;
     private bool facingRight = true;

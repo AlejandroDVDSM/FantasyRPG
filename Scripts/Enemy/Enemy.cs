@@ -1,11 +1,9 @@
 using DefaultNamespace;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour, ILife
 {
-
     [SerializeField] private Animator animator;
     [SerializeField] private MonsterData monsterData;
 

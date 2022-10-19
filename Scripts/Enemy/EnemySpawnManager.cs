@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-
     [SerializeField] private GameObject[] enemiesPrefab;
 
     private Vector3 leftRespawn;
@@ -26,6 +23,8 @@ public class EnemySpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemiesPrefab[Random.Range(0, 4)], respawns[Random.Range(0, respawns.Length)], transform.rotation);
+        var randomEnemy = Random.Range(0, enemiesPrefab.Length);
+        var randomRespawn = Random.Range(0, respawns.Length);
+        Instantiate(enemiesPrefab[randomEnemy], respawns[randomRespawn], transform.rotation);
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   damage: 10
   speed: 6.5
   attackRange: 1.5
+  cooldownAttack: 2

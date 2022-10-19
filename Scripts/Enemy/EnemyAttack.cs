@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-
     [SerializeField] private Animator animator;
     [SerializeField] private MonsterData monsterData;
     [SerializeField] private float minimunDistance; // Distance in which the monster stop following the player
@@ -13,7 +12,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private LayerMask playerLayer;
 
-    private float cooldownAttack = 1f;
+    private float cooldownAttack = 0;
 
     private AudioManager audioManager;
 
@@ -47,7 +46,7 @@ public class EnemyAttack : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
                 audioManager.Play("EnemyAttack");
-                cooldownAttack = 2f;
+                cooldownAttack = monsterData.CooldownAttack;
             }
         }
     }
