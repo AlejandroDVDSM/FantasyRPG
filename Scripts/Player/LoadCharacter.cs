@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LoadCharacter : MonoBehaviour
 {
-
     [SerializeField] private CharacterData characterData;
     
     void Awake()

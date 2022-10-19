@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,14 +28,15 @@ public class Roll : MonoBehaviour
             audioManager.Play("PlayerRolling");
             Physics2D.IgnoreLayerCollision(gameObject.layer, 7);
 
-            if (playerController.FacingRight && context.started) // If it is facing right
+            if (playerController.FacingRight)
             {
                 rigidbody2D.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);
             }
-            else if (!playerController.FacingRight && context.started) // If it is facing left
+            else if (!playerController.FacingRight)
             {
                 rigidbody2D.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
             }
+
             isRolling = true;
         }
     }
@@ -58,10 +57,7 @@ public class Roll : MonoBehaviour
      */
     bool CanRoll()
     {
-        if (!isRolling && playerController.Movement.x != 0)
-        {
-            return true;
-        }
+        if (!isRolling && playerController.Movement.x != 0) return true;
 
         return false;
     }

@@ -14,7 +14,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float knockback;
 
     private PlayerController playerController;
-
     private AudioManager audioManager;
 
     private void Awake()

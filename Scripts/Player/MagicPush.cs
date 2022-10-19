@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Vector3 = UnityEngine.Vector3;
 
 public class MagicPush : MonoBehaviour
 {
-    
     [SerializeField] private Animator animator;
 
     [SerializeField] private LayerMask enemyLayer;

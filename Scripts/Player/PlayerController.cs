@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,18 +5,18 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     private BoxCollider2D boxCollider2D;
+    private AudioManager audioManager;
+
     [SerializeField] private Animator animator;
 
     private Vector3 movement;
+    private bool facingRight = true;
+
     [SerializeField] private float jumpForce;
 
     [SerializeField] private LayerMask groundLayerMask;
 
     [SerializeField] private CharacterData characterData;
-
-    private AudioManager audioManager;
-
-    private bool facingRight = true;
 
     // Getters
     public bool FacingRight { get => facingRight; }
@@ -47,7 +45,6 @@ public class PlayerController : MonoBehaviour
 
         movement = new Vector3(horizontalAxisValue, 0, 0);
     }
-
 
     /**
      * FlipPlayer will change the scale of the player to change the direction in which the sprite is facing

@@ -44,6 +44,15 @@ public class Enemy : MonoBehaviour, ILife
 
     private IEnumerator DestroyCorpse()
     {
+        DisableEnemy();
+
+        yield return new WaitForSeconds(7);
+
+        Destroy(gameObject);
+    }
+
+    private void DisableEnemy()
+    {
         MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
 
         // Disable all scripts attached to the enemies
@@ -51,13 +60,9 @@ public class Enemy : MonoBehaviour, ILife
         {
             script.enabled = false;
         }
-        
+
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
         this.enabled = false;
-
-        yield return new WaitForSeconds(7);
-
-        Destroy(gameObject);
     }
 }

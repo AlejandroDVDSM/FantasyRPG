@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BlockAttacks : MonoBehaviour
 {
-
     [SerializeField] private Animator animator;
     private PlayerController playerController;
     private bool isBlocking = false;
@@ -16,7 +13,6 @@ public class BlockAttacks : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
     }
-
 
     private void Update()
     {

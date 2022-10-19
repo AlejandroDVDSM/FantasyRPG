@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -7,6 +5,9 @@ public class Timer : MonoBehaviour
 {
     private float timeValue = 120; // 120 secs = 2 min.
     [SerializeField] private TextMeshProUGUI timerText;
+
+    public float TimeValue { get => timeValue; }
+
 
     private void Update()
     {
@@ -17,7 +18,8 @@ public class Timer : MonoBehaviour
         {
             timeValue = 0;
 
-            GameObject.Find("GameOverManager").GetComponent<TriggerGameOver>().TriggerGameOverScreen();
+            GameObject.Find("FinalUIManager").GetComponent<TriggerEndUI>().TriggerUI("Game Over");
+            GameObject.FindWithTag("Player").GetComponent<Player>().DisablePlayer();
         }
 
         DisplayTime(timeValue);

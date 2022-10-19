@@ -1,11 +1,9 @@
 using DefaultNamespace;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour, ILife
 {
-
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterData characterData;
 
@@ -15,8 +13,10 @@ public class Player : MonoBehaviour, ILife
     private bool takeHit = false;
 
     private AudioManager audioManager;
+    private float timer;
 
     public bool TakeHit { get => takeHit; }
+    public int CurrentHealth { get => currentHealth; }
 
     private void Start()
     {
@@ -24,6 +24,10 @@ public class Player : MonoBehaviour, ILife
 
         blockAttacks = GetComponent<BlockAttacks>();
         audioManager = FindObjectOfType<AudioManager>();
+
+        timer = GameObject.FindWithTag("Timer").GetComponent<Timer>().TimeValue;
+
+        StartCoroutine(PlayerWin(timer));
     }
 
     /**
@@ -47,7 +51,7 @@ public class Player : MonoBehaviour, ILife
         if (currentHealth <= 0)
         {
             Die();
-            GameObject.Find("GameOverManager").GetComponent<TriggerGameOver>().TriggerGameOverScreen();
+            GameObject.Find("FinalUIManager").GetComponent<TriggerEndUI>().TriggerUI("Game Over");
         }
 
         takeHit = false;
@@ -58,6 +62,11 @@ public class Player : MonoBehaviour, ILife
         animator.SetBool("IsDead", true);
         audioManager.Play("PlayerDeath");
 
+        DisablePlayer();
+    }
+
+    public void DisablePlayer()
+    {
         MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
 
         // Disable all scripts attached to the player
@@ -69,5 +78,12 @@ public class Player : MonoBehaviour, ILife
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
         this.enabled = false;
+    }
+
+    private IEnumerator PlayerWin(float secondToWait)
+    {
+        yield return new WaitForSeconds(secondToWait);
+
+        GameObject.Find("FinalUIManager").GetComponent<TriggerEndUI>().TriggerUI("Winner");
     }
 }
