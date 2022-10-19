@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4421149041202241569}
   - component: {fileID: -6405794400683482073}
   - component: {fileID: 4421149041202241583}
+  - component: {fileID: 5554017706179964796}
   - component: {fileID: 4421149041202241570}
   - component: {fileID: 4421149041202241582}
   - component: {fileID: 4421149041202241568}
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4421149041202241582}
   monsterData: {fileID: 11400000, guid: 5dcfc1cfcbd450741beeece8359b44cb, type: 2}
+--- !u!114 &5554017706179964796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421149041202241571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0797dc6180a03094c9edd053086f0b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &4421149041202241570
 SpriteRenderer:
   m_ObjectHideFlags: 0

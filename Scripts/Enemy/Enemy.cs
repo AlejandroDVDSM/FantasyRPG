@@ -18,18 +18,6 @@ public class Enemy : MonoBehaviour, ILife
     {
         currentHealth = monsterData.Health;
         audioManager = FindObjectOfType<AudioManager>();
-
-        FaceTowardsThePlayer();
-    }
-
-    void FaceTowardsThePlayer()
-    {
-        if (transform.position.x > 0) // If the enemy is in the right, face where the player is: at his left
-        {
-            Vector3 currentScale = transform.localScale;
-            currentScale.x *= -1;
-            transform.localScale = currentScale;
-        }
     }
 
     /**
