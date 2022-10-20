@@ -16,10 +16,22 @@ public class TriggerFinalScreen : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
     }
 
-    public void TriggerWin()
+    public void TriggerEnd(string state)
     {
         audioManager.Stop("BattleTheme");
         finalScreenUI.SetActive(true);
+
+        if(state == "Win")
+        {
+            TriggerWin();
+        } else if (state == "Lose")
+        {
+            TriggerLose();
+        }
+    }
+
+    private void TriggerWin()
+    {
         panelImage.color = new Color(0.22f, 0.424f, 0.09f, .75f); // Hex: 386C17
 
         uiText.text = "You win!";
@@ -27,10 +39,8 @@ public class TriggerFinalScreen : MonoBehaviour
         StartCoroutine(PauseGame());
     }
 
-    public void TriggerLoose()
+    private void TriggerLose()
     {
-        audioManager.Stop("BattleTheme");
-        finalScreenUI.SetActive(true);
         panelImage.color = new Color(.725f, .239f, .118f, .75f); // Hex: B93D1E
 
         uiText.text = "Game Over";

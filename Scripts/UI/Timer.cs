@@ -4,6 +4,8 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     private float timeValue = 120; // 120 secs = 2 min.
+    //private float timeValue = 2; // Test line
+
     [SerializeField] private TextMeshProUGUI timerText;
 
     private Player player;
@@ -30,11 +32,11 @@ public class Timer : MonoBehaviour
         } else if (timeValue < 0 && playerHealth > 0)
         {
             timeValue = 0;
-            finalScreenManager.TriggerWin();
+            finalScreenManager.TriggerEnd("Win");
         } else if (playerHealth <= 0 && !looseHasBeenTrigger)
         {
             looseHasBeenTrigger = true;
-            finalScreenManager.TriggerLoose();
+            finalScreenManager.TriggerEnd("Lose");
         }
 
         DisplayTime(timeValue);
