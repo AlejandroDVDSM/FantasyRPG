@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, ILife
     private void Awake()
     {
         currentHealth = characterData.Health;
+        //currentHealth = 5; // Test line
 
         blockAttacks = GetComponent<BlockAttacks>();
         audioManager = FindObjectOfType<AudioManager>();

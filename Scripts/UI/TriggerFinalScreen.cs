@@ -21,7 +21,7 @@ public class TriggerFinalScreen : MonoBehaviour
 
         uiText.text = "You win!";
         audioManager.Play("Winner");
-        //Time.timeScale = 0;
+        StartCoroutine(PauseGame());
     }
 
     public void TriggerLoose()
@@ -29,9 +29,16 @@ public class TriggerFinalScreen : MonoBehaviour
         audioManager.Stop("BattleTheme");
         finalScreenUI.SetActive(true);
 
-        uiText.text = "GameOver";
+        uiText.text = "Game Over";
         audioManager.Play("GameOver");
-        //Time.timeScale = 0;
+        StartCoroutine(PauseGame());
+    }
+
+    private IEnumerator PauseGame()
+    {
+        yield return new WaitForSeconds(1);
+
+        Time.timeScale = 0;
     }
 
 }

@@ -5,23 +5,21 @@ public class SceneSwitcher : MonoBehaviour
 {
 
     private AudioManager audioManager;
-    private float timeScale;
-    private float fixedDeltaTime;
     
     private void Awake()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        fixedDeltaTime = Time.fixedDeltaTime;
-        timeScale = Time.timeScale;
     }
 
     public void LoadScene(string scene) 
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene);
     }
 
     public void LoadSameScene()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
