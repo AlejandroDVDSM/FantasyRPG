@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 
 public class TriggerEndUI : MonoBehaviour
@@ -6,27 +7,31 @@ public class TriggerEndUI : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI uiText;
 
+    private AudioManager audioManager;
 
-    public void TriggerUI(string text)
+    private void Start()
     {
-        AudioManager audioManager = FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
+    public void TriggerWin()
+    {
         audioManager.Stop("BattleTheme");
         gameOverUI.SetActive(true);
 
-        switch (text)
-        {
-            case "Game Over":
-                uiText.text = text;
-                audioManager.Play("GameOver");
-                break;
-
-            case "Winner":
-                uiText.text = text;
-                audioManager.Play("Winner");
-                break;
-
-            default:
-                break;
-        }
+        uiText.text = "You win!";
+        audioManager.Play("Winner");
+        //Time.timeScale = 0;
     }
+
+    public void TriggerLoose()
+    {
+        audioManager.Stop("BattleTheme");
+        gameOverUI.SetActive(true);
+
+        uiText.text = "GameOver";
+        audioManager.Play("GameOver");
+        //Time.timeScale = 0;
+    }
+
 }

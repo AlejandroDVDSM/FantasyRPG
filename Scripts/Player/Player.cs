@@ -13,21 +13,16 @@ public class Player : MonoBehaviour, ILife
     private bool takeHit = false;
 
     private AudioManager audioManager;
-    private float timer;
 
     public bool TakeHit { get => takeHit; }
     public int CurrentHealth { get => currentHealth; }
 
-    private void Start()
+    private void Awake()
     {
-        currentHealth = characterData.Health;
+        currentHealth = 5;
 
         blockAttacks = GetComponent<BlockAttacks>();
         audioManager = FindObjectOfType<AudioManager>();
-
-        timer = GameObject.FindWithTag("Timer").GetComponent<Timer>().TimeValue;
-
-        StartCoroutine(PlayerWin(timer));
     }
 
     /**
@@ -51,7 +46,6 @@ public class Player : MonoBehaviour, ILife
         if (currentHealth <= 0)
         {
             Die();
-            GameObject.Find("FinalUIManager").GetComponent<TriggerEndUI>().TriggerUI("Game Over");
         }
 
         takeHit = false;
@@ -78,12 +72,5 @@ public class Player : MonoBehaviour, ILife
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
         this.enabled = false;
-    }
-
-    private IEnumerator PlayerWin(float secondToWait)
-    {
-        yield return new WaitForSeconds(secondToWait);
-
-        GameObject.Find("FinalUIManager").GetComponent<TriggerEndUI>().TriggerUI("Winner");
     }
 }
