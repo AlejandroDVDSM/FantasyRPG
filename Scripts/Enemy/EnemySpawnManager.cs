@@ -12,8 +12,8 @@ public class EnemySpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        leftRespawn = new Vector3(-55, 15, 0);
-        rightRespawn = new Vector3(30, 15, 0);
+        leftRespawn = new Vector3(-55, 20, 0);
+        rightRespawn = new Vector3(30, 20, 0);
 
         respawns[0] = leftRespawn;
         respawns[1] = rightRespawn;
