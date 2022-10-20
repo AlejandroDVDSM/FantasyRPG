@@ -3,26 +3,26 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    private float timeValue = 61; // 120 secs = 2 min.
+    private float timeValue = 120; // 120 secs = 2 min.
     [SerializeField] private TextMeshProUGUI timerText;
 
-    private GameObject player;
+    private Player player;
     private int playerHealth;
     private bool looseHasBeenTrigger = false;
 
-    private GameObject finalUIManager;
+    private TriggerFinalScreen finalScreenManager;
 
     private void Start()
     {
-        player = GameObject.FindWithTag("Player");
-        finalUIManager = GameObject.Find("FinalUIManager");
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        finalScreenManager = GameObject.Find("FinalScreenManager").GetComponent<TriggerFinalScreen>();
     }
 
     public float TimeValue { get => timeValue; }
 
     private void Update()
     {
-        playerHealth = player.GetComponent<Player>().CurrentHealth;
+        playerHealth = player.CurrentHealth;
 
         if (timeValue > 0 && playerHealth > 0)
         {
@@ -30,11 +30,11 @@ public class Timer : MonoBehaviour
         } else if (timeValue < 0 && playerHealth > 0)
         {
             timeValue = 0;
-            finalUIManager.GetComponent<TriggerEndUI>().TriggerWin();
+            finalScreenManager.TriggerWin();
         } else if (playerHealth <= 0 && !looseHasBeenTrigger)
         {
             looseHasBeenTrigger = true;
-            finalUIManager.GetComponent<TriggerEndUI>().TriggerLoose();
+            finalScreenManager.TriggerLoose();
         }
 
         DisplayTime(timeValue);

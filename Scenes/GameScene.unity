@@ -520,9 +520,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1533592943
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c069b9f98e0c0fa478d21c146bca98b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 548286471}
   - component: {fileID: 548286470}
   m_Layer: 0
-  m_Name: FinalUIManager
+  m_Name: FinalScreenManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cdc337ba055444f9c634b31ab82b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 1043364241}
+  finalScreenUI: {fileID: 1043364241}
   uiText: {fileID: 363007796}
 --- !u!4 &548286471
 Transform:
@@ -1111,7 +1111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043364242}
   m_Layer: 5
-  m_Name: FinalUI
+  m_Name: FinalScreenUI
   m_TagString: GameOver
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1784,9 +1784,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingLayerID: 1533592943
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5b37c9fd3c197a7468d1e1f60eff329b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-public class TriggerEndUI : MonoBehaviour
+public class TriggerFinalScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameObject finalScreenUI;
     [SerializeField] private TextMeshProUGUI uiText;
 
     private AudioManager audioManager;
@@ -17,7 +17,7 @@ public class TriggerEndUI : MonoBehaviour
     public void TriggerWin()
     {
         audioManager.Stop("BattleTheme");
-        gameOverUI.SetActive(true);
+        finalScreenUI.SetActive(true);
 
         uiText.text = "You win!";
         audioManager.Play("Winner");
@@ -27,7 +27,7 @@ public class TriggerEndUI : MonoBehaviour
     public void TriggerLoose()
     {
         audioManager.Stop("BattleTheme");
-        gameOverUI.SetActive(true);
+        finalScreenUI.SetActive(true);
 
         uiText.text = "GameOver";
         audioManager.Play("GameOver");
