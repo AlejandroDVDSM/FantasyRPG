@@ -8,6 +8,7 @@ public class TriggerFinalScreen : MonoBehaviour
     [SerializeField] private GameObject finalScreenUI;
     [SerializeField] private TextMeshProUGUI uiText;
     [SerializeField] private Image panelImage;
+    [SerializeField] private Button resumeButton;
 
     private AudioManager audioManager;
 
@@ -20,6 +21,7 @@ public class TriggerFinalScreen : MonoBehaviour
     {
         audioManager.Stop("BattleTheme");
         finalScreenUI.SetActive(true);
+        resumeButton.gameObject.SetActive(false);
 
         if(state == "Win")
         {
