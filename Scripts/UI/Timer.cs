@@ -4,7 +4,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     private float timeValue = 120; // 120 secs = 2 min.
-    //private float timeValue = 2; // Test line
+    //private float timeValue = 34; // Test line
 
     [SerializeField] private TextMeshProUGUI timerText;
 
@@ -44,6 +44,12 @@ public class Timer : MonoBehaviour
 
     void DisplayTime(float timeToDisplay)
     {
+
+        if (timeToDisplay <= 30)
+        {
+            timerText.color = Color.red;
+        }
+
         float minutes = Mathf.FloorToInt(timeToDisplay / 60);
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
