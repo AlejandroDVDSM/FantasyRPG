@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    private bool isAttacking = false;
 
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform attackPoint;
@@ -16,9 +17,12 @@ public class PlayerAttack : MonoBehaviour
     private PlayerController playerController;
     private AudioManager audioManager;
 
-    private void Awake()
+    public bool IsAttacking { get => isAttacking; }
+
+    private void Start()
     {
         playerController = GetComponent<PlayerController>();
+
         audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -27,9 +31,18 @@ public class PlayerAttack : MonoBehaviour
      */
     public void OnAttack1(InputAction.CallbackContext context)
     {
-        // With this "if" we will avoid the trigger twice behaviour
-        if (context.performed) 
+        var isMagiclyPushing = false;
+
+        if (GetComponent<MagicPush>() != null)
         {
+            isMagiclyPushing = GetComponent<MagicPush>().IsMagiclyPushing;
+        }
+
+
+        // With this "if" we will avoid the trigger twice behaviour
+        if (context.performed && isAttacking == false && isMagiclyPushing == false)
+        {
+            isAttacking = true;
             audioManager.Play("SwordAttack");
             animator.SetTrigger("Attack1");
         }
@@ -47,6 +60,14 @@ public class PlayerAttack : MonoBehaviour
             enemy.GetComponent<Enemy>().TakeDamage(characterData.Damage);
             KnockBack(enemy);
         }
+    }
+
+    /**
+     * This method is called by Animation Events
+     */
+    public void StopAttacking()
+    {
+        isAttacking = false;
     }
 
     /**

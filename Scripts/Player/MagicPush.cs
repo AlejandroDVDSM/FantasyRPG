@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class MagicPush : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    private bool isMagiclyPushing = false;
 
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform attackPoint;
@@ -14,6 +15,8 @@ public class MagicPush : MonoBehaviour
     private PlayerController playerController;
 
     private AudioManager audioManager;
+
+    public bool IsMagiclyPushing { get => isMagiclyPushing; }
 
     private void Awake()
     {
@@ -26,9 +29,11 @@ public class MagicPush : MonoBehaviour
      */
     public void OnSpecialMovement(InputAction.CallbackContext context)
     {
+        var isAttacking = GetComponent<PlayerAttack>().IsAttacking;
         // With this "if" we will avoid the trigger twice behaviour
-        if (context.performed)
+        if (context.performed && isMagiclyPushing == false && isAttacking == false)
         {
+            isMagiclyPushing = true;
             animator.SetTrigger("MagicPush");
             audioManager.Play("MagicPush");
         }
@@ -58,6 +63,10 @@ public class MagicPush : MonoBehaviour
         enemy.GetComponent<Enemy>().transform.position += playerController.FacingRight
             ? new Vector3(magicKnockback, 0, 0)
             : new Vector3(-magicKnockback, 0, 0);
+    }
 
+    private void StopMagiclyPushing()
+    {
+        isMagiclyPushing = false;
     }
 }
