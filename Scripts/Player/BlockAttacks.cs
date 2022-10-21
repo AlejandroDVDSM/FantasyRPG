@@ -28,6 +28,7 @@ public class BlockAttacks : MonoBehaviour
         isBlocking = true;
 
         playerController.enabled = false;
+        animator.SetFloat("Speed", 0);
         if (context.canceled)
         {
             StopBlocking();
@@ -37,6 +38,7 @@ public class BlockAttacks : MonoBehaviour
     void StopBlocking()
     {
         animator.SetBool("IsBlocking", false);
+        animator.SetFloat("Speed", 1);
         isBlocking = false;
         playerController.enabled = true;
     }
