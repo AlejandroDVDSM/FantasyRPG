@@ -8,14 +8,24 @@ public class Enemy : MonoBehaviour, ILife
     [SerializeField] private MonsterData monsterData;
 
     private int currentHealth;
-
     private AudioManager audioManager;
+
+    private SpriteRenderer spriteRenderer;
+    private Color startColor;
+    private Color endColor;
+
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = monsterData.Health;
         audioManager = FindObjectOfType<AudioManager>();
+
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        startColor = spriteRenderer.color;
+        //endColor = Color.black;
+        endColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
     }
 
     /**
@@ -28,7 +38,7 @@ public class Enemy : MonoBehaviour, ILife
 
         currentHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
             Die();
         }
@@ -37,8 +47,8 @@ public class Enemy : MonoBehaviour, ILife
     public void Die()
     {
         animator.SetBool("IsDead", true);
+        isDead = true;
         audioManager.Play("EnemyDeath");
-
         StartCoroutine(DestroyCorpse());
     }
 
@@ -46,7 +56,7 @@ public class Enemy : MonoBehaviour, ILife
     {
         DisableEnemy();
 
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(4);
 
         Destroy(gameObject);
     }
@@ -61,8 +71,18 @@ public class Enemy : MonoBehaviour, ILife
             script.enabled = false;
         }
 
+        GetComponent<Enemy>().enabled = true;
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true; // gravity
-        this.enabled = false;
+        //this.enabled = false;
+    }
+
+    private void Update()
+    {
+        if(isDead)
+        {
+            spriteRenderer.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time * 1, 1));
+
+        }
     }
 }
