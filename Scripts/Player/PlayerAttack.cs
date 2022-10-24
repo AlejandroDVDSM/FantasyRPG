@@ -4,27 +4,22 @@ using UnityEngine.InputSystem;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    private bool isAttacking = false;
+    private PlayerController playerController;
+    private AudioManager audioManager;
 
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
+    [SerializeField] private float knockback;
+    private bool isAttacking = false;
 
     [SerializeField] private CharacterData characterData;
-
-    [SerializeField] private float knockback;
-
-    private PlayerController playerController;
-    private BlockAttacks blockAttacks;
-
-    private AudioManager audioManager;
 
     public bool IsAttacking { get => isAttacking; }
 
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
-        blockAttacks = GetComponent<BlockAttacks>();
 
         audioManager = FindObjectOfType<AudioManager>();
     }
