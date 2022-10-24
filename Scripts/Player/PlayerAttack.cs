@@ -43,6 +43,7 @@ public class PlayerAttack : MonoBehaviour
         if (context.performed && isAttacking == false && isMagiclyPushing == false)
         {
             isAttacking = true;
+            playerController.enabled = false;
             audioManager.Play("SwordAttack");
             animator.SetTrigger("Attack1");
         }
@@ -68,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
     public void StopAttacking()
     {
         isAttacking = false;
+        playerController.enabled = true;
     }
 
     /**

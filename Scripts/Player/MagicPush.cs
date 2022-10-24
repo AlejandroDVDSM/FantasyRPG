@@ -34,6 +34,7 @@ public class MagicPush : MonoBehaviour
         if (context.performed && isMagiclyPushing == false && isAttacking == false)
         {
             isMagiclyPushing = true;
+            playerController.enabled = false;
             animator.SetTrigger("MagicPush");
             audioManager.Play("MagicPush");
         }
@@ -67,6 +68,7 @@ public class MagicPush : MonoBehaviour
 
     private void StopMagiclyPushing()
     {
+        playerController.enabled = true;
         isMagiclyPushing = false;
     }
 }
