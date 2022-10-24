@@ -4,7 +4,11 @@ using UnityEngine.InputSystem;
 public class Roll : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
+
     private PlayerController playerController;
+    private PlayerAttack playerAttack;
+    private BlockAttacks blockAttacks;
+
 
     [SerializeField] private Animator animator;
     [SerializeField] private float rollForce;
@@ -13,10 +17,16 @@ public class Roll : MonoBehaviour
 
     private AudioManager audioManager;
 
+    public bool IsRolling { get => isRolling; }
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+
         playerController = GetComponent<PlayerController>();
+        playerAttack = GetComponent<PlayerAttack>();
+        blockAttacks = GetComponent<BlockAttacks>();
+
         audioManager = FindObjectOfType<AudioManager>();
     }
 
@@ -57,7 +67,7 @@ public class Roll : MonoBehaviour
      */
     bool CanRoll()
     {
-        if (!isRolling && playerController.Movement.x != 0) return true;
+        if (!isRolling && playerController.Movement.x != 0 && !blockAttacks.IsBlocking && !playerAttack.IsAttacking) return true;
 
         return false;
     }

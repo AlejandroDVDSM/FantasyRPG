@@ -31,7 +31,7 @@ public class MagicPush : MonoBehaviour
     {
         var isAttacking = GetComponent<PlayerAttack>().IsAttacking;
         // With this "if" we will avoid the trigger twice behaviour
-        if (context.performed && isMagiclyPushing == false && isAttacking == false)
+        if (context.performed && !isMagiclyPushing && !isAttacking && !playerController.IsJumping)
         {
             isMagiclyPushing = true;
             playerController.enabled = false;

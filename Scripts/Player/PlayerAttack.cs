@@ -15,6 +15,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float knockback;
 
     private PlayerController playerController;
+    private BlockAttacks blockAttacks;
+
     private AudioManager audioManager;
 
     public bool IsAttacking { get => isAttacking; }
@@ -22,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
+        blockAttacks = GetComponent<BlockAttacks>();
 
         audioManager = FindObjectOfType<AudioManager>();
     }
@@ -32,15 +35,25 @@ public class PlayerAttack : MonoBehaviour
     public void OnAttack1(InputAction.CallbackContext context)
     {
         var isMagiclyPushing = false;
-
         if (GetComponent<MagicPush>() != null)
         {
             isMagiclyPushing = GetComponent<MagicPush>().IsMagiclyPushing;
         }
 
+        var isRolling = false;
+        if (GetComponent<Roll>() != null)
+        {
+            isRolling = GetComponent<Roll>().IsRolling;
+        }
+
+        var isBlocking = false;
+        if (GetComponent<BlockAttacks>() != null)
+        {
+            isBlocking = GetComponent<BlockAttacks>().IsBlocking;
+        }
 
         // With this "if" we will avoid the trigger twice behaviour
-        if (context.performed && isAttacking == false && isMagiclyPushing == false)
+        if (context.performed && !isAttacking && !isMagiclyPushing && !isBlocking && !isRolling && !playerController.IsJumping)
         {
             isAttacking = true;
             playerController.enabled = false;

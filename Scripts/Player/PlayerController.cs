@@ -5,15 +5,16 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     private BoxCollider2D boxCollider2D;
+    [SerializeField] private Animator animator;
     private AudioManager audioManager;
 
-    [SerializeField] private Animator animator;
+    private PlayerAttack playerAttack;
 
     private Vector3 movement;
     private bool facingRight = true;
+    private bool isJumping = false;
 
     [SerializeField] private float jumpForce;
-
     [SerializeField] private LayerMask groundLayerMask;
 
     [SerializeField] private CharacterData characterData;
@@ -21,12 +22,15 @@ public class PlayerController : MonoBehaviour
     // Getters
     public bool FacingRight { get => facingRight; }
     public Vector3 Movement { get => movement; }
+    public bool IsJumping { get => isJumping; set => isJumping = value; }
 
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         audioManager = FindObjectOfType<AudioManager>();
+
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -60,8 +64,27 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext _)
     {
-        if (IsGrounded())
+        var isMagiclyPushing = false;
+        if (GetComponent<MagicPush>() != null)
         {
+            isMagiclyPushing = GetComponent<MagicPush>().IsMagiclyPushing;
+        }
+
+        var isRolling = false;
+        if (GetComponent<Roll>() != null)
+        {
+            isRolling = GetComponent<Roll>().IsRolling;
+        }
+
+        var isBlocking = false;
+        if (GetComponent<BlockAttacks>() != null)
+        {
+            isBlocking = GetComponent<BlockAttacks>().IsBlocking;
+        }
+
+        if (IsGrounded() && !playerAttack.IsAttacking && !isRolling && !isMagiclyPushing && !isBlocking)
+        {
+            isJumping = true;
             animator.SetBool("IsJumping", true);
             audioManager.Play("PlayerJump");
             rigidbody2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -83,6 +106,7 @@ public class PlayerController : MonoBehaviour
     void IsLanded()
     {
         animator.SetBool("IsJumping", false);
+        isJumping = false;
         audioManager.Play("PlayerLanding");
     }
 
