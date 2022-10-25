@@ -1284,6 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1043364241}
   pauseText: {fileID: 363007796}
+  recordText: {fileID: 58912056}
   resume: {fileID: 1482017366}
 --- !u!1 &590936909
 GameObject:

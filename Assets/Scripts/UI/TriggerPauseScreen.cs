@@ -8,6 +8,7 @@ public class TriggerPauseScreen : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private TextMeshProUGUI pauseText;
+    [SerializeField] private TextMeshProUGUI recordText;
     [SerializeField] private Button resume;
 
     private bool isPaused = false;
@@ -24,6 +25,7 @@ public class TriggerPauseScreen : MonoBehaviour
         audioManager.Stop("BattleTheme");
         pauseScreen.SetActive(true);
         pauseText.text = "Pause";
+        recordText.text = "Record: " + FindObjectOfType<Score>().Record;
 
         Time.timeScale = 0;
     }
