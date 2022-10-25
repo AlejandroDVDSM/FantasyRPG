@@ -9,7 +9,6 @@ public class Roll : MonoBehaviour
     private PlayerAttack playerAttack;
     private BlockAttacks blockAttacks;
 
-
     [SerializeField] private Animator animator;
     [SerializeField] private float rollForce;
 
@@ -42,7 +41,7 @@ public class Roll : MonoBehaviour
             {
                 rigidbody2D.AddForce(Vector2.right * rollForce, ForceMode2D.Impulse);
             }
-            else if (!playerController.FacingRight)
+            else
             {
                 rigidbody2D.AddForce(Vector2.left * rollForce, ForceMode2D.Impulse);
             }
