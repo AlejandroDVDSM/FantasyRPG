@@ -15,6 +15,6 @@ MonoBehaviour:
   monsterName: EvilWizard
   health: 100
   damage: 10
-  speed: 9
+  speed: 7
   attackRange: 1.9
   cooldownAttack: 2
