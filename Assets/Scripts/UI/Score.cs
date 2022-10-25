@@ -21,7 +21,11 @@ public class Score : MonoBehaviour
         currentScore++;
 
         UpdateScoreText();
-        UpdateRecord();
+
+        if (currentScore > record)
+        {
+            UpdateRecord();
+        }
     }
 
     private void UpdateScoreText()
@@ -31,10 +35,8 @@ public class Score : MonoBehaviour
 
     private void UpdateRecord()
     {
-        if (currentScore > record)
-        {
-            record = currentScore;
-            PlayerPrefs.SetInt("Record", record);
-        }
+        record = currentScore;
+        PlayerPrefs.SetInt("Record", record);
+     
     }
 }
