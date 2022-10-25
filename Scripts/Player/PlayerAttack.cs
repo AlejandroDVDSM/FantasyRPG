@@ -47,8 +47,14 @@ public class PlayerAttack : MonoBehaviour
             isBlocking = GetComponent<BlockAttacks>().IsBlocking;
         }
 
+        var isAvoiding = false;
+        if (GetComponent<AvoidAttacks>() != null)
+        {
+            isAvoiding = GetComponent<AvoidAttacks>().IsAvoiding;
+        }
+
         // With this "if" we will avoid the trigger twice behaviour
-        if (context.performed && !isAttacking && !isMagiclyPushing && !isBlocking && !isRolling && !playerController.IsJumping)
+        if (context.performed && !isAttacking && !isMagiclyPushing && !isBlocking && !isAvoiding && !isRolling && !playerController.IsJumping)
         {
             isAttacking = true;
             playerController.enabled = false;

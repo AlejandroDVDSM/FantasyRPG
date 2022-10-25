@@ -30,8 +30,10 @@ public class MagicPush : MonoBehaviour
     public void OnSpecialMovement(InputAction.CallbackContext context)
     {
         var isAttacking = GetComponent<PlayerAttack>().IsAttacking;
+        var isAvoiding = GetComponent<AvoidAttacks>().IsAvoiding;
+
         // With this "if" we will avoid the trigger twice behaviour
-        if (context.performed && !isMagiclyPushing && !isAttacking && !playerController.IsJumping)
+        if (context.performed && !isMagiclyPushing && !isAttacking && !isAvoiding && !playerController.IsJumping)
         {
             isMagiclyPushing = true;
             playerController.enabled = false;

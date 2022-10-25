@@ -64,7 +64,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Block"",
+                    ""name"": ""Defend"",
                     ""type"": ""Button"",
                     ""id"": ""f3213817-e86c-4677-8302-6187bcd75075"",
                     ""expectedControlType"": ""Button"",
@@ -257,7 +257,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Block"",
+                    ""action"": ""Defend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -268,7 +268,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Block"",
+                    ""action"": ""Defend"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -860,7 +860,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack1 = m_Player.FindAction("Attack1", throwIfNotFound: true);
         m_Player_SpecialMovement = m_Player.FindAction("SpecialMovement", throwIfNotFound: true);
-        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
+        m_Player_Defend = m_Player.FindAction("Defend", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -936,7 +936,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack1;
     private readonly InputAction m_Player_SpecialMovement;
-    private readonly InputAction m_Player_Block;
+    private readonly InputAction m_Player_Defend;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -945,7 +945,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack1 => m_Wrapper.m_Player_Attack1;
         public InputAction @SpecialMovement => m_Wrapper.m_Player_SpecialMovement;
-        public InputAction @Block => m_Wrapper.m_Player_Block;
+        public InputAction @Defend => m_Wrapper.m_Player_Defend;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -967,9 +967,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SpecialMovement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialMovement;
                 @SpecialMovement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialMovement;
                 @SpecialMovement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpecialMovement;
-                @Block.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
-                @Block.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
-                @Block.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @Defend.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDefend;
+                @Defend.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDefend;
+                @Defend.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDefend;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -986,9 +986,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SpecialMovement.started += instance.OnSpecialMovement;
                 @SpecialMovement.performed += instance.OnSpecialMovement;
                 @SpecialMovement.canceled += instance.OnSpecialMovement;
-                @Block.started += instance.OnBlock;
-                @Block.performed += instance.OnBlock;
-                @Block.canceled += instance.OnBlock;
+                @Defend.started += instance.OnDefend;
+                @Defend.performed += instance.OnDefend;
+                @Defend.canceled += instance.OnDefend;
             }
         }
     }
@@ -1149,7 +1149,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack1(InputAction.CallbackContext context);
         void OnSpecialMovement(InputAction.CallbackContext context);
-        void OnBlock(InputAction.CallbackContext context);
+        void OnDefend(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

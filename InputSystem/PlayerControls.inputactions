@@ -42,7 +42,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Block",
+                    "name": "Defend",
                     "type": "Button",
                     "id": "f3213817-e86c-4677-8302-6187bcd75075",
                     "expectedControlType": "Button",
@@ -235,7 +235,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Block",
+                    "action": "Defend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -246,7 +246,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Block",
+                    "action": "Defend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

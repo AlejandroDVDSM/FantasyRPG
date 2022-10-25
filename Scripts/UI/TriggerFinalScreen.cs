@@ -7,6 +7,7 @@ public class TriggerFinalScreen : MonoBehaviour
 {
     [SerializeField] private GameObject finalScreenUI;
     [SerializeField] private TextMeshProUGUI uiText;
+    [SerializeField] private TextMeshProUGUI recordText;
     [SerializeField] private Image panelImage;
     [SerializeField] private Button resumeButton;
 
@@ -22,8 +23,9 @@ public class TriggerFinalScreen : MonoBehaviour
         audioManager.Stop("BattleTheme");
         finalScreenUI.SetActive(true);
         resumeButton.gameObject.SetActive(false);
+        recordText.text = "Record: " + FindObjectOfType<Score>().Record;
 
-        if(state == "Win")
+        if (state == "Win")
         {
             TriggerWin();
         } else if (state == "Lose")

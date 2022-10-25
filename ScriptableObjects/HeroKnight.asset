@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HeroKnight
   m_EditorClassIdentifier: 
   characterClass: Hero Knight
-  health: 150
+  health: 125
   damage: 15
   speed: 7

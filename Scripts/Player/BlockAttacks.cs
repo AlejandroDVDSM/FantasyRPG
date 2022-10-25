@@ -44,6 +44,7 @@ public class BlockAttacks : MonoBehaviour
 
             playerController.enabled = false;
             animator.SetFloat("Speed", 0);
+
             if (context.canceled)
             {
                 StopBlocking();

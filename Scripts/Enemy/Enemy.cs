@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour, ILife
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         startColor = spriteRenderer.color;
-        //endColor = Color.black;
         endColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0);
     }
 
@@ -41,6 +40,7 @@ public class Enemy : MonoBehaviour, ILife
         if (currentHealth <= 0 && !isDead)
         {
             Die();
+            FindObjectOfType<Score>().AddPoint();
         }
     }
 
