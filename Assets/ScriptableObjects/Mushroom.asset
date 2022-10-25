@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Mushroom
   health: 150
-  damage: 10
+  damage: 12
   speed: 3
   attackRange: 1.5
   cooldownAttack: 4

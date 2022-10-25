@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterName: Flying Eye
   health: 50
-  damage: 10
+  damage: 5
   speed: 6.5
   attackRange: 1.5
   cooldownAttack: 2
