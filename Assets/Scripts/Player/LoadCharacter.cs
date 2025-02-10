@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class LoadCharacter : MonoBehaviour
 {
-    [SerializeField] private CharacterData characterData;
+    [SerializeField] private Transform playerSpawn;
+    [SerializeField] private Player heroKnight;
+    [SerializeField] private Player wizard;
     
     void Awake()
     {
-        if (!PlayerPrefs.GetString("Class").Equals(characterData.CharacterClass))
+        Debug.Log($"Class: {PlayerPrefs.GetString("Class")}");
+
+        switch (PlayerPrefs.GetString("Class"))
         {
-            gameObject.SetActive(false);
+            case "Wizard":
+                Instantiate(wizard, playerSpawn);
+                break;
+            case "Hero Knight":
+                Instantiate(heroKnight, playerSpawn);
+                break;
         }
     }
 }

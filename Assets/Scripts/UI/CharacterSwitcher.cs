@@ -20,5 +20,6 @@ public class CharacterSwitcher : MonoBehaviour
         menuTextManager.GetComponent<MenuUIManager>().SetText(characterData.CharacterClass, characterData.Health.ToString(), characterData.Speed.ToString(), characterData.Damage.ToString());
         audioManager.Play("Click");
         PlayerPrefs.SetString("Class", characterData.CharacterClass);
+        Debug.Log(characterData.CharacterClass);
     }
 }
